@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { Suspense } from "react";
 import ProductsSuspanse from "@/app/_ui/ProductsSuspanse";
 import FilterSuspanse from "@/app/_ui/FilterSuspanse";
@@ -20,7 +19,15 @@ interface PageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    category?: string;
+    brand?: string;
+    series?: string;
+  }>;
+}) {
   const query = await params;
 
   return {
