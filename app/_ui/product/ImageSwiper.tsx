@@ -33,7 +33,7 @@ export default function ImageSwiper({
   isNew: boolean;
   category?: string;
   mainImage: string;
-  images: string[];
+  images: [];
 }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -83,6 +83,7 @@ export default function ImageSwiper({
             discount,
             stock,
             isNew,
+            images,
             mainImage,
           }}
           onCard={false}

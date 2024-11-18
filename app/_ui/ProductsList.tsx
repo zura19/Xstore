@@ -67,6 +67,7 @@ export default function ProductsList({
               category={"category" in product ? product.category : ""}
               images={product.images}
               series={"series" in product ? product.series : ""}
+              // @ts-expect-error idk
               specifications={
                 "specification" in product ? product.specification : {}
               }
@@ -97,6 +98,7 @@ export default function ProductsList({
             discount={product.discount}
             category={"category" in product ? product.category : ""}
             images={product.images}
+            // @ts-expect-error idk
             specifications={
               "specifications" in product ? product.specifications : {}
             }

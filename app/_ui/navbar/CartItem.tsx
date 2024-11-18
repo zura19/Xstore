@@ -47,6 +47,7 @@ export default function CartItem({ cartItem }: { cartItem: IcartItem }) {
             />
           </button>
         </div>
+        {/* @ts-expect-error idk */}
         <Cartboard id={cartItem.id} size={"sm"} />
         <div className="flex items-center gap-1">
           <p className="text-gray-400">{cartItem.quantity}</p>

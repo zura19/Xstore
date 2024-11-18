@@ -30,10 +30,10 @@ export default function ProductSwiper({
     category: string;
     specification: {
       brand: string;
-      colors?: string | string[];
+      colors?: string;
       videoCard?: string;
       system: string;
-      storage: string | string[];
+      storage: string;
       ram: string;
     };
   }[];
@@ -68,7 +68,9 @@ export default function ProductSwiper({
               isNew={product.new}
               discount={product.discount}
               images={product.images}
+              specifications={product.specification}
               mainImage={product.mainImage}
+              series={product.series}
             />
           </SwiperSlide>
         ))}
