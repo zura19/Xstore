@@ -22,9 +22,9 @@ interface PageProps {
 export async function generateMetadata({
   params,
 }: {
-  params: {
-    category?: string;
-  };
+  params: Promise<{
+    category: string;
+  }>;
 }) {
   const query = await params;
 

@@ -23,7 +23,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{
-    series?: string;
+    series: string;
   }>;
 }) {
   const query = await params;
