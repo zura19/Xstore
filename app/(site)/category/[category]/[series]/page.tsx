@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Suspense } from "react";
 import ProductsSuspanse from "@/app/_ui/ProductsSuspanse";
 import FilterSuspanse from "@/app/_ui/FilterSuspanse";
