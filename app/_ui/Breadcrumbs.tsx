@@ -1,12 +1,10 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   let arr = pathname.split("/");

@@ -1,16 +1,12 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
 export default function SearchInput() {
   const [query, setQuery] = useState("");
   const searchParams = useSearchParams();
   const router = useRouter();
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams);
-  }, []);
 
   function onSearch() {
     const params = new URLSearchParams(searchParams);
