@@ -2,20 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .create-input {
+    @apply input placeholder:text-gray-500 focus:outline-1 rounded-md focus:outline-brand bg-white border-gray-400 input-bordered;
+  }
+  .create-select {
+    @apply select select-bordered rounded-md placeholder:text-gray-500 focus:outline-1 focus:outline-brand bg-white border-gray-400 w-full max-w-xs;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.hidden {
+  display: none;
+}
+
+.appear {
+  display: block;
+  animation: appear 1s;
+  /* animation-delay: 1s; */
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
+
+/* .range::-webkit-slider-runnable-track {
+  background-color: #1c61e7;
+} */
+
+/*
+.range::-moz-range-track {
+  background-color: #1c61e7;
+}
+
+.range::-moz-range-thumb {
+  background-color: #1c61e7;
+} */
+
+@media (prefers-reduced-motion) {
+  .skeleton {
+    animation-duration: 1.6s;
+  }
 }
