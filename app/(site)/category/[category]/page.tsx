@@ -5,7 +5,7 @@ import Breadcrumbs from "@/app/_ui/Breadcrumbs";
 import CardSkeletonList from "@/app/_ui/skeletons/CardSkeletonList";
 import FilterSkeleton from "@/app/_ui/skeletons/FilterSkeleton";
 
-interface pageProps {
+interface PageProps {
   searchParams: Promise<{
     search?: string;
     min?: string;
@@ -42,7 +42,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function page({ searchParams, params }: pageProps) {
+export default async function page({ searchParams, params }: PageProps) {
   const param = await params;
   const searchparams = await searchParams;
 
