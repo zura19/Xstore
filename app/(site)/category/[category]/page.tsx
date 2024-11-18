@@ -32,13 +32,13 @@ export async function generateMetadata({
 
   return {
     title: `Xstore - ${
-      query.category &&
+      query?.category &&
       query?.category.replace(
-        query.category[0],
-        query.category[0].toLocaleUpperCase()
+        query?.category[0],
+        query?.category[0].toLocaleUpperCase()
       )
     }`,
-    description: `Xstore - ${query.category}`,
+    description: `Xstore - ${query?.category}`,
   };
 }
 
@@ -50,7 +50,7 @@ export default async function page({ searchParams, params }: PageProps) {
     <div className="max-w-[90%] p-4 mx-auto  grid gap-y-4 gap-8 grid-cols-[3fr_10fr]">
       <Breadcrumbs />
       <Suspense fallback={<FilterSkeleton />}>
-        <FilterSuspanse searchParam={{ search: searchparams.search }} />
+        <FilterSuspanse searchParam={{ search: searchparams?.search }} />
       </Suspense>
       <Suspense fallback={<CardSkeletonList />}>
         <ProductsSuspanse
@@ -58,9 +58,9 @@ export default async function page({ searchParams, params }: PageProps) {
             ...searchparams,
             ...param,
             category:
-              param.category === "apple" ||
-              param.category === "google" ||
-              param.category === "hp"
+              param?.category === "apple" ||
+              param?.category === "google" ||
+              param?.category === "hp"
                 ? ""
                 : param.category,
             brand:
