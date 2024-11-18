@@ -24,8 +24,6 @@ export async function generateMetadata({
 }: {
   params: {
     category?: string;
-    brand?: string;
-    series?: string;
   };
 }) {
   const query = await params;
@@ -50,7 +48,7 @@ export default async function page({ searchParams, params }: PageProps) {
     <div className="max-w-[90%] p-4 mx-auto  grid gap-y-4 gap-8 grid-cols-[3fr_10fr]">
       <Breadcrumbs />
       <Suspense fallback={<FilterSkeleton />}>
-        <FilterSuspanse searchParam={{ search: searchparams?.search }} />
+        <FilterSuspanse searchParam={{ search: searchparams.search }} />
       </Suspense>
       <Suspense fallback={<CardSkeletonList />}>
         <ProductsSuspanse

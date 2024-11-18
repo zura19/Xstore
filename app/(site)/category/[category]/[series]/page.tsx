@@ -23,8 +23,6 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{
-    category?: string;
-    brand?: string;
     series?: string;
   }>;
 }) {
