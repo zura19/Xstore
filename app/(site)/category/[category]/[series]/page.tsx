@@ -12,11 +12,11 @@ interface pageProps {
     max?: string;
     page?: string;
   }>;
-  params: {
+  params: Promise<{
     category?: string;
     brand?: string;
     series?: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: pageProps) {
@@ -24,13 +24,13 @@ export async function generateMetadata({ params }: pageProps) {
 
   return {
     title: `Xstore - ${
-      query.series &&
+      query?.series &&
       query?.series.replace(
-        query.series[0],
-        query.series[0].toLocaleUpperCase()
+        query?.series[0],
+        query?.series[0].toLocaleUpperCase()
       )
     }`,
-    description: `Xstore - ${query.series}`,
+    description: `Xstore - ${query?.series}`,
   };
 }
 

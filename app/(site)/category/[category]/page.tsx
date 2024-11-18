@@ -12,14 +12,22 @@ interface pageProps {
     max?: string;
     page?: string;
   }>;
+  params: Promise<{
+    category?: string;
+    brand?: string;
+    series?: string;
+  }>;
+}
+
+export async function generateMetadata({
+  params,
+}: {
   params: {
     category?: string;
     brand?: string;
     series?: string;
   };
-}
-
-export async function generateMetadata({ params }: pageProps) {
+}) {
   const query = await params;
 
   return {
@@ -77,8 +85,4 @@ export default async function page({ searchParams, params }: pageProps) {
       </Suspense>
     </div>
   );
-}
-
-{
-  /* <Suspense fallback={<Loader />}></Suspense>; */
 }
