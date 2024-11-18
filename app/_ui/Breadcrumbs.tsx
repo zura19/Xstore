@@ -8,7 +8,7 @@ export default function Breadcrumbs() {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
-  // const navigation = use
+
   let arr = pathname.split("/");
   const search = searchParams.get("search");
   console.log(search);

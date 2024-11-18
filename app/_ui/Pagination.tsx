@@ -1,19 +1,14 @@
 "use client";
-import { setActivePage } from "@/store/pageSlice";
-import { useAppDispatch, useAppSelector } from "@/store/store";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { motion } from "framer-motion";
 
 export default function Pagination({ allProducts }: { allProducts: number }) {
-  // const activePage = useAppSelector((state) => state.page.activePage);
-  // const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  // const [activePage, setActivePage] = useState(1);
   const [activePage, setActivePage] = useState<number>(
     Number(searchParams.get("page")) || 1
   );

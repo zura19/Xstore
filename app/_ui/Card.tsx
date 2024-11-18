@@ -8,8 +8,6 @@ import { HiX } from "react-icons/hi";
 import CardSwiper from "./CardSwiper";
 import DeleteOrUpdate from "./DeleteOrUpdate";
 import { useSession } from "next-auth/react";
-// import CardSwiper from "./CardSwiper";
-// import { motion } from "framer-motion";
 
 export interface Icard {
   id: string;
@@ -56,7 +54,6 @@ export default function Card({
       onMouseLeave={() => setIsHovered(false)}
       className=" card bg-white max-w-full  rounded-md overflow-hidden shadow-sm hover:cursor-pointer"
     >
-      {/* <figure className="relative w-full indicator  h-52"> */}
       <div className="relative  indicator z-10">
         {discount ? (
           <p className="badge  bg-brand text-xs text-white p-2 indicator-item indicator-start translate-x-4 translate-y-4 badge-info">
@@ -73,7 +70,7 @@ export default function Card({
           </p>
         )}
       </div>
-      {/* <div className=""> */}
+
       <FavoriteBtn
         product={{
           id,
@@ -89,8 +86,6 @@ export default function Card({
         isHovered={isHovered}
       />
 
-      {/* </div> */}
-      {/* </figure> */}
       <div className="grid   relative h-52">
         <CardSwiper
           isHovered={isHovered}
@@ -99,20 +94,7 @@ export default function Card({
         />
       </div>
 
-      {/* <Image
-          fill
-          className={`object-contain transition-all duration-500 ${
-            isHovered ? "scale-110" : ""
-          } `}
-          // src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          src={mainImage}
-          alt="Shoes"
-        /> */}
-
-      <div
-        // href={`/product/${title.replaceAll(" ", "-")}`}
-        className="card-body cursor-default  p-2 pt-0 mt-2"
-      >
+      <div className="card-body cursor-default  p-2 pt-0 mt-2">
         <div className="flex flex-col mb-2 gap-2">
           <div className="flex items-center justify-between">
             <h2 className="card-title text-base line-clamp-1 text-gray-700 leading-5">

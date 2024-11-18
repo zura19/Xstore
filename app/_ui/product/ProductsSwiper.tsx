@@ -4,14 +4,12 @@ import SwiperBtn from "../SwiperBtn";
 import Card from "../Card";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/swiper-bundle.css";
-// import { Iproduct } from "@/models/productModel";
 
 export default function ProductSwiper({
   randomProducts,

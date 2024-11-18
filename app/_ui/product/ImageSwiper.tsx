@@ -13,7 +13,6 @@ import "swiper/css/thumbs";
 import "swiper/css/scrollbar";
 import SwiperBtn from "../SwiperBtn";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-// import { Iproduct } from "@/models/productModel";
 
 export default function ImageSwiper({
   id,
@@ -38,20 +37,7 @@ export default function ImageSwiper({
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  const imagesArr: string[] = [
-    mainImage,
-    ...images,
-    // "https://swiperjs.com/demos/images/nature-1.jpg",
-    // "https://swiperjs.com/demos/images/nature-2.jpg",
-    // "https://swiperjs.com/demos/images/nature-3.jpg",
-    // "https://swiperjs.com/demos/images/nature-4.jpg",
-    // "https://swiperjs.com/demos/images/nature-5.jpg",
-    // "https://swiperjs.com/demos/images/nature-6.jpg",
-    // "https://swiperjs.com/demos/images/nature-7.jpg",
-    // "https://swiperjs.com/demos/images/nature-8.jpg",
-  ];
-
-  // console.log(swiper.);
+  const imagesArr: string[] = [mainImage, ...images];
 
   return (
     <div
@@ -62,7 +48,7 @@ export default function ImageSwiper({
       <Swiper
         style={{
           // @ts-expect-error sdf
-          // "--swiper-navigation-background-color": "black",
+
           "--swiper-navigation-size": "24px",
           "--swiper-navigation-color": "black",
           "--swiper-pagination-size": "23px",
@@ -72,7 +58,6 @@ export default function ImageSwiper({
         loop={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Thumbs]}
-        // allowTouchMove={false}
         className=" rounded-lg  border border-gray-200"
       >
         <FavoriteBtn
@@ -113,7 +98,6 @@ export default function ImageSwiper({
         )}
       </Swiper>
       <Swiper
-        // onSlideChange={(swipre) => swiper.slides[swiper.activeIndex];}
         // @ts-expect-error idk
         onActiveIndexChange={setThumbsSwiper}
         spaceBetween={10}

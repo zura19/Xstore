@@ -21,7 +21,6 @@ export default function CartItem({ cartItem }: { cartItem: IcartItem }) {
         if (e.target === closeBtnRef.current) return;
         router.push(`/product/${cartItem.title.replaceAll(" ", "-")}`);
       }}
-      // href={`/product/${cartItem.title.replaceAll(" ", "-")}`}
       className="p-2 border-b last:border-none border-gray-200 grid grid-cols-[4fr_10fr] gap-4 group transition-all duration-300 hover:bg-gray-100"
     >
       <div className="relative max-h-12  group-hover:bg-white transition-all duration-300 rounded-md">

@@ -1,10 +1,8 @@
-import { auth } from "@/auth";
 import Link from "next/link";
 import React from "react";
 import { HiOutlinePhone } from "react-icons/hi2";
 
 export default function Logo({ size }: { size?: string }) {
-  // const session = await auth();
   return (
     <Link
       href={"/"}
@@ -32,7 +30,6 @@ export default function Logo({ size }: { size?: string }) {
         }`}
       >
         Xstore
-        {/* {session?.user?.name || ""} */}
       </h1>
     </Link>
   );

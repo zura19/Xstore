@@ -1,13 +1,11 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-// import { FormSubmitHandler } from "react-hook-form";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
 export default function SearchInput() {
   const [query, setQuery] = useState("");
   const searchParams = useSearchParams();
-  // const pathname = usePathname();v
   const router = useRouter();
 
   useEffect(() => {

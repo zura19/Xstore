@@ -8,13 +8,9 @@ import { z } from "zod";
 import { BiHide, BiShow } from "react-icons/bi";
 import { signInWithCredentials } from "@/app/actions/authActions";
 import toast from "react-hot-toast";
-import { redirect, usePathname, useRouter } from "next/navigation";
-import path from "path";
 import { getSession } from "next-auth/react";
 
 export default function LoginForm({ closeModal }: { closeModal: () => void }) {
-  const router = useRouter();
-  const pathname = usePathname();
   const swiper = useSwiper();
   const { register, formState, handleSubmit, reset } = useForm<
     z.infer<typeof loginSchema>
@@ -38,9 +34,8 @@ export default function LoginForm({ closeModal }: { closeModal: () => void }) {
       return;
     }
 
-    // if (formState.isSubmitSuccessful) {
     closeModal();
-    // router.replace(`${pathname}/profile`);
+
     toast.success("User logged in successfully");
     reset();
     await getSession();

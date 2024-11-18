@@ -1,7 +1,5 @@
 "use client";
 import formatCurrency from "@/lib/formatCurrency";
-// import { setActivePage } from "@/store/pageSlice";
-// import { useAppDispatch, useAppSelector } from "@/store/store";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
@@ -9,9 +7,6 @@ export default function Filter({ priceArr }: { priceArr: number[] }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathName = usePathname();
-
-  // const activePage = useAppSelector((state) => state.page.activePage);
-  // const dispatch = useAppDispatch();
 
   const minPrice = Math.min(...priceArr);
   const maxPrice = Math.max(...priceArr);

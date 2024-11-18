@@ -4,7 +4,7 @@ import CartEmpty from "./CartEmpty";
 import { MdOutlineClose } from "react-icons/md";
 import CartItem from "./CartItem";
 import CartFooter from "./CartFooter";
-// import formatCurrency from "@/lib/formatCurrency";
+
 import { useAppSelector } from "@/store/store";
 
 export default function Cartoverview() {

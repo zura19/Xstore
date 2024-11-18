@@ -7,10 +7,6 @@ export default async function NewPorducts() {
 
   console.log(newProducts);
 
-  // const passedProducts = newProducts.map((product) => {
-  //   return { ...product.toObject(), _id: String(product._id) };
-  // });
-
   console.log(NewPorducts);
 
   return (

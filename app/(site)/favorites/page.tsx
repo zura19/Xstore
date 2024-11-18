@@ -1,7 +1,6 @@
 "use client";
 import ProductsList from "@/app/_ui/ProductsList";
 import ReturnHomePageBtn from "@/app/_ui/ReturnHomePageBtn";
-// import { IFavoritesItem } from "@/store/productSlice";
 import { useAppSelector } from "@/store/store";
 import React from "react";
 import { HiOutlineHeart } from "react-icons/hi2";

@@ -48,9 +48,6 @@ export default function Footer() {
           >
             Headphones
           </Link>
-          {/* <Link href={"/category/phone"} className="link link-hover">
-            Phones
-          </Link> */}
         </nav>
 
         <nav className="grid gap-2 mr-auto">
@@ -80,9 +77,6 @@ export default function Footer() {
           >
             Samsung
           </Link>
-          {/* <Link href={"/category/phone"} className="link link-hover">
-            Phones
-          </Link> */}
         </nav>
 
         <nav className="grid gap-2">

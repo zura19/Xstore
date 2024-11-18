@@ -53,7 +53,6 @@ export default function DeleteOrUpdate({
         tabIndex={0}
         className="dropdown-content cursor-pointer   flex-none grow-0   bg-base-100 rounded-md z-[1]  shadow"
       >
-        {/* <dialog id="create-modal"> */}
         <li
           onClick={handleDelete}
           className="p-2  focus:bg-red-500   hover:bg-gray-100 rounded-md transition-all duration-300"

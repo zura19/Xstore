@@ -37,7 +37,6 @@ export default function SidebarItem({
   if (!main)
     return (
       <Link
-        // htmlFor="my-drawer"
         href={to ? to : "/"}
         className="hover:cursor-pointer   transition-all duration-300"
       >

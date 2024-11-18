@@ -1,10 +1,9 @@
 import React from "react";
 import SidebarFullItems from "./SidebarFullItems";
-import { HiOutlineDevicePhoneMobile, HiOutlinePhone } from "react-icons/hi2";
+import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { RiMacbookLine } from "react-icons/ri";
-import Link from "next/link";
 import AllCategoriesBtn from "../AllCategoriesBtn";
 
 export default function SidebarFull() {
