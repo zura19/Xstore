@@ -69,7 +69,6 @@ export default function ProductForm({
     };
   };
 }) {
-  console.log(product?.specifications);
   const [error, setError] = useState<string>("");
   const { handleSubmit, formState, control, register, reset } = useForm<
     z.infer<typeof productSchema>
@@ -116,8 +115,6 @@ export default function ProductForm({
       }
     }
   }
-
-  console.log(fields);
 
   return (
     <form

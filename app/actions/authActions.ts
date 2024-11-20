@@ -93,3 +93,59 @@ export async function signUp(values: {
     throw err;
   }
 }
+
+export async function changePassword({
+  id,
+  currentPassword,
+  newPassword,
+  repeatNewPassword,
+}: {
+  id: string;
+  currentPassword: string;
+  newPassword: string;
+  repeatNewPassword: string;
+}) {
+  try {
+    await connectToDB();
+
+    // Find the user by ID
+    const user = await User.findById(id);
+    if (!user) {
+      return { error: "No user found with that ID." };
+    }
+
+    // Verify the current password
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) {
+      return { error: "Current password is incorrect." };
+    }
+
+    // Check if the new password matches the old one
+    if (currentPassword === newPassword) {
+      return {
+        error: "Your new password cannot be the same as the current password.",
+      };
+    }
+
+    if (newPassword !== repeatNewPassword) {
+      return {
+        error: "Passwords didn't match",
+      };
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
+
+    // Save the updated user
+    await user.save();
+
+    return { success: "Password changed successfully." };
+  } catch (err) {
+    console.error("Error changing password:", err);
+    return {
+      error:
+        "An error occurred while changing the password. Please try again later.",
+    };
+  }
+}

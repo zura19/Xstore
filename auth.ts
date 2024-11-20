@@ -1,10 +1,10 @@
-import NextAuth, { JWT } from "next-auth";
+import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { connectToDB } from "./lib/db";
 import User from "./models/userModel";
 import bcrypt from "bcryptjs";
 
-const protectedPages = ["/profile"];
+const protectedPages = ["/account"];
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -34,6 +34,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           id: realUser?._id?.toString() || "",
           role: realUser.role || "",
           // image: realUser?.image || "",
+          phone: realUser.number,
           name: realUser.username,
           email: realUser.email,
         };
@@ -41,17 +42,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
-    authorized({ auth, request }) {
+    authorized({ request, auth }) {
       const isLoggedIn = !!auth?.user;
+      const pathname = request.nextUrl.pathname;
 
-      // Check if the page is protected and user is not logged in
-      const isProtectedPage = protectedPages.includes(request.nextUrl.pathname);
-      if (isProtectedPage && !isLoggedIn) {
-        // Redirect to login if trying to access protected page without being authenticated
+      if (protectedPages.includes(pathname) && !isLoggedIn) {
         return Response.redirect(new URL("/", request.nextUrl));
       }
 
-      return true; // Allow access if no restriction
+      return true;
     },
 
     async jwt({ token, user }) {
@@ -60,6 +59,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.name = user.name;
         token.email = user.email;
         token.role = user.role; // Add role to the token
+        token.phone = user.phone;
       }
       return token;
     },
@@ -73,6 +73,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email: token.email as string,
           role: token.role as string, // Type assertion here for role
           image: token.image as string,
+          phone: token.phone as number,
         };
       }
       return session;

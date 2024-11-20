@@ -1,14 +1,14 @@
 // models/User.ts
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose, { Schema, Model } from "mongoose";
 
 // Interface for the User model
-interface IUser extends Document {
+interface IUser {
   number: number;
   email: string;
   password: string;
   username: string;
   role: string;
-  checkPassword(inputPassword: string): Promise<boolean>;
+  // checkPassword(inputPassword: string): Promise<boolean>;
 }
 
 // User schema definition

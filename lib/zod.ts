@@ -98,3 +98,64 @@ export const loginSchema = z.object({
     .string({ required_error: "Password is required" })
     .min(1, "Password is required"),
 });
+
+export const orderSchema = z.object({
+  firstName: z
+    .string({ required_error: "First name is required" })
+    .min(1, "First name is required"),
+
+  lastName: z
+    .string({ required_error: "Last name is required" })
+    .min(1, "Last name is required"),
+
+  personId: z
+    .string({ required_error: "Id is required" })
+    .min(1, "Id is required"),
+
+  address: z
+    .string({ required_error: "Address is required" })
+    .min(1, "Address is required")
+    .min(10, "Enter your real address"),
+
+  email: z
+    .string({ required_error: "Email is required" })
+    .min(1, "Email is required")
+    .email("Enter valid email"),
+
+  number: z
+    .number({
+      required_error: "Phone number is required",
+      invalid_type_error:
+        "Number must be a valid numeric value (e.g., 1234567890).",
+    })
+    .min(1, "Phone number is required"),
+
+  additionalInfo: z.string(),
+});
+
+export const changePasswordSchema = z
+  .object({
+    currentPassword: z
+      .string({ required_error: "Enter current password" })
+      .min(1, "Enter current password"),
+
+    newPassword: z
+      .string({ required_error: "Enter new password" })
+      .min(1, "Enter new password")
+      .min(8, "Password must be at least 8 characters long.")
+      .max(32, "Password must not exceed 32 characters.")
+      .regex(/[A-Z]/, "Password must include at least one uppercase letter.")
+      .regex(/[a-z]/, "Password must include at least one lowercase letter.")
+      .regex(/\d/, "Password must include at least one number.")
+      .regex(
+        /[^A-Za-z0-9]/,
+        "Password must include at least one special character."
+      ),
+    repeatNewPassword: z
+      .string({ required_error: "Repeat new password" })
+      .min(1, "Repeat new password"),
+  })
+  .refine((data) => data.newPassword === data.repeatNewPassword, {
+    message: "Passwords do not match",
+    path: ["repeatNewPassword"], // Error will be associated with `repeatNewPassword`
+  });

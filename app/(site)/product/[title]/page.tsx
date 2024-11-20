@@ -1,11 +1,14 @@
 import AddToCartBtn from "@/app/_ui/AddToCartBtn";
+import DeleteOrUpdate from "@/app/_ui/DeleteOrUpdate";
 import Colors from "@/app/_ui/product/Colors";
 import ImageSwiper from "@/app/_ui/product/ImageSwiper";
 import InterestedProducts from "@/app/_ui/product/InterestedProducts";
 import { getProductByTitle } from "@/app/actions/productActions";
+import { auth } from "@/auth";
 import formatCurrency from "@/lib/formatCurrency";
 import { Iproduct } from "@/models/productModel";
 import mongoose from "mongoose";
+import { HiX } from "react-icons/hi";
 import { HiCheck } from "react-icons/hi2";
 
 interface ProductPageProps {
@@ -24,6 +27,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
 export default async function Page({ params }: ProductPageProps) {
   const { title } = await params;
   const product: Iproduct = await getProductByTitle(title.replaceAll("-", " "));
+  const session = await auth();
 
   return (
     <div className="">
@@ -55,9 +59,28 @@ export default async function Page({ params }: ProductPageProps) {
                 </p>
               )}
             </div>
-
-            <h1 className="text-3xl font-semibold mb-6">{product.title}</h1>
-
+            <div className="flex  items-start justify-between py-2">
+              <h1 className="text-3xl font-semibold leading-6  mb-6">
+                {product.title}
+              </h1>
+              {session?.user?.role === "admin" ? (
+                <DeleteOrUpdate
+                  product={{
+                    id: String(product._id),
+                    title: product.title,
+                    price: product.price,
+                    mainImage: product.mainImage,
+                    images: product.images || [],
+                    stock: product.stock,
+                    isNew: product.new,
+                    discount: product.discount,
+                    category: product.category,
+                    specifications: { ...product.specification },
+                    series: product.series,
+                  }}
+                />
+              ) : null}
+            </div>
             {!product.discount ? (
               <p className="text-brand text-4xl mb-4 font-medium leading-4">
                 {formatCurrency(product.price)}
@@ -76,33 +99,51 @@ export default async function Page({ params }: ProductPageProps) {
             )}
             <Colors colors={product.specification.colors as string} />
             <div className="flex font-semibold gap-1 items-center">
-              <HiCheck
-                size={18}
-                strokeWidth={1.4}
-                color="#1c61e7"
-                className="font-bold"
-              />
-              <p>In stock:</p>
-              <p>{product.stock}</p>
+              {product.stock > 0 ? (
+                <>
+                  <HiCheck
+                    size={18}
+                    strokeWidth={1.4}
+                    color="#1c61e7"
+                    className="font-bold"
+                  />
+                  <p>In stock:</p>
+                  <p>{product.stock}</p>
+                </>
+              ) : (
+                <>
+                  <span>
+                    <HiX
+                      size={18}
+                      strokeWidth={1.4}
+                      color="#ef4444"
+                      className="font-bold text-re"
+                    />
+                  </span>
+                  <p>Not in stock</p>
+                </>
+              )}
             </div>
-            <div className="flex items-center gap-4">
-              {/* <Cartboard stock={product.stock} /> */}
-              <AddToCartBtn
-                id={String(product._id)}
-                title={product.title}
-                stock={product.stock}
-                price={
-                  product.discount || product.discount !== 0
-                    ? product.price - (product.price * product.discount) / 100
-                    : product.price
-                }
-                image={product.mainImage}
-                quantity={1}
-              />
-              <button className="btn min-h-9 h-12 rounded-md flex-1 bg-green-600 hover:bg-green-700 transition-all duration-300 border-none text-white">
-                Buy now
-              </button>
-            </div>
+            {product.stock > 0 ? (
+              <div className="flex items-center gap-4">
+                {/* <Cartboard stock={product.stock} /> */}
+                <AddToCartBtn
+                  id={String(product._id)}
+                  title={product.title}
+                  stock={product.stock}
+                  price={
+                    product.discount || product.discount !== 0
+                      ? product.price - (product.price * product.discount) / 100
+                      : product.price
+                  }
+                  image={product.mainImage}
+                  quantity={1}
+                />
+                <button className="btn min-h-9 h-12 rounded-md flex-1 bg-green-600 hover:bg-green-700 transition-all duration-300 border-none text-white">
+                  Buy now
+                </button>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

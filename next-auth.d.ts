@@ -12,6 +12,7 @@ declare module "next-auth" {
       email: string;
       role: string; // Added role here
       image?: string;
+      phone: number;
     };
   }
 
@@ -21,6 +22,7 @@ declare module "next-auth" {
     name: string;
     email: string;
     role: string; // Added role here
+    phone: number;
     image?: string;
   }
 
@@ -31,5 +33,6 @@ declare module "next-auth" {
     email: string;
     role: string; // Added role here
     image?: string;
+    phone: number;
   }
 }

@@ -50,6 +50,10 @@ const productSlice = createSlice({
       );
     },
 
+    emptyCart: (state) => {
+      state.cart = [];
+    },
+
     increaseQuantity: (state, action: PayloadAction<string>) => {
       const product = state.cart.find(
         (product) => product.id === action.payload
@@ -82,6 +86,7 @@ const productSlice = createSlice({
 export const {
   addToCart,
   removeFromCart,
+  emptyCart,
   increaseQuantity,
   decreaseQuantity,
   addToFavorites,

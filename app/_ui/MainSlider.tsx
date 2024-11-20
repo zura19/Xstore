@@ -19,13 +19,13 @@ const images = [
   {
     imageLink:
       "https://www.apple.com/v/iphone-16/c/images/overview/product-viewer/iphone/all_colors__flhn5cmb1t26_xlarge.jpg",
-    to: "/iphones",
+    to: "/search?search=iphone",
   },
 
   {
     imageLink:
       "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1730787627/Croma%20Assets/Computers%20Peripherals/Laptop/Images/310946_0_oulrfg.png?tr=w-600",
-    to: "/macbooks",
+    to: "/search?search=macbook",
   },
 
   {
@@ -33,7 +33,7 @@ const images = [
       // "https://www.apple.com/v/iphone-16/c/images/overview/product-viewer/iphone/all_colors__flhn5cmb1t26_xlarge.jpg",
 
       "https://www.apple.com/v/airpods-4/b/images/overview/stories/design_airpods_pair__c4zc76vxva82_large.jpg",
-    to: "/iphones",
+    to: "/category/headphones",
   },
 ];
 

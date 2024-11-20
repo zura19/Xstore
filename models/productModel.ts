@@ -89,14 +89,7 @@ const productSchema = new mongoose.Schema<Iproduct>({
   },
 });
 
-// productSchema.virtual("originalPrice").get(function () {
-//   return this.price - (this.price * this.discount) / 100;
-// });
-
-// Optionally, make the virtual field show up when converting to JSON
-// productSchema.set("toJSON", { virtuals: true });
-
 const Product =
-  mongoose.models.Product || mongoose.model("Product", productSchema);
+  mongoose?.models?.Product || mongoose.model("Product", productSchema);
 
 export default Product;

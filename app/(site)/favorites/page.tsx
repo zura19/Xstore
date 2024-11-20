@@ -7,7 +7,7 @@ import { HiOutlineHeart } from "react-icons/hi2";
 
 export default function Favorites() {
   const favorites = useAppSelector(
-    (state) => state.persistedProductsReducer.product?.favorites
+    (state) => state.persistedProductsReducer?.product?.favorites
   );
 
   if (favorites.length === 0) {
