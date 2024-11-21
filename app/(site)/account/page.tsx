@@ -1,7 +1,6 @@
 import { auth } from "@/auth";
 import Image from "next/image";
-import React, { FormEvent, FormEventHandler } from "react";
-// import { serverAction } from "next/actions";
+import React from "react";
 import { HiOutlineUser } from "react-icons/hi2";
 import { redirect } from "next/navigation";
 import SignOutBtn from "@/app/_ui/account/SignOutBtn";

@@ -61,7 +61,7 @@ const Navbar = () => {
       className={`${
         isVisible
           ? "fixed top-0  right-0 left-0  md:left-[4.5%] sm:left-[8%] xl:left-[4.5%]"
-          : "relative fixed"
+          : " relative fixed"
       }sm:z-30  z-50 bg-indigo-100 shadow-md`}
     >
       <div className="navbar py-1 px-4 justify-between  md:max-w-[90%] mx-auto">

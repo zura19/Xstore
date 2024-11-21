@@ -7,12 +7,10 @@ export default function BottomNavItem({
   children,
   to,
   label,
-  user,
 }: {
   children: ReactNode;
   to: string;
   label: string;
-  user?: boolean;
 }) {
   const pathaname = usePathname();
 

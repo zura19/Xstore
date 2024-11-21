@@ -1,6 +1,7 @@
 import { formatDateToReadable } from "@/lib/date";
 import formatCurrency from "@/lib/formatCurrency";
 import { IcartItem } from "@/store/productSlice";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -26,10 +27,11 @@ export default function Order({
           className="flex items-center gap-3"
         >
           {/* <div className="avatar"> */}
-          <div className="h-12 bg-white rounded-md  w-12">
-            <img
+          <div className="h-12 relative bg-white rounded-md  w-12">
+            <Image
+              fill
               src={product.image}
-              className="object-cover"
+              className="object-contain"
               alt="Avatar Tailwind CSS Component"
             />
           </div>
