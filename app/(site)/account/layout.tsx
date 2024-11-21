@@ -6,7 +6,9 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={`grid grid-cols-[1fr_4fr] max-w-[90%] mx-auto py-6`}>
+    <div
+      className={`grid lg:grid-cols-[1fr_4fr] grid-cols-[1fr_2fr] sm:max-w-[90%] mx-auto py-6`}
+    >
       <AccountSidebar />
       <div className="">{children}</div>
     </div>

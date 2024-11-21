@@ -105,11 +105,6 @@ export default function Filter({ priceArr }: { priceArr: number[] }) {
           </button>
         </div>
       </div>
-
-      {/* <div className="p-4">
-        <p>Categories</p>
-      </div> */}
     </>
-    // </div>
   );
 }

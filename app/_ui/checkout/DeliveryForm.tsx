@@ -67,14 +67,14 @@ export default function DeliveryForm() {
       <h2 className="text-xl font-medium text-gray-700">Payment / delivey</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-y-4 gap-x-12 mt-4"
+        className="grid sm:grid-cols-2 gap-y-4 gap-x-12 mt-4"
       >
         <div className="flex flex-col gap-1">
           <label>First name</label>
           <input
             {...register("firstName")}
             // defaultValue={userInfo?.user.name || ""}
-            className="create-input h-10"
+            className="create-input  h-10"
           />
           {formState.errors.firstName && (
             <p className="text-sm p-1 pb-0 text-red-500 ">

@@ -4,7 +4,7 @@ import { changePasswordSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { BiHide, BiShow } from "react-icons/bi";
@@ -43,24 +43,34 @@ export default function ChangePassword() {
     }
   }
 
+  useEffect(() => {
+    if (!session.data?.user) {
+      return router.push("/");
+    }
+  }, [router, session.data?.user]);
+
+  if (!session?.data?.user) {
+    return null;
+  }
+
   return (
-    <div className="border-l  flex flex-col  gap-2 px-6 border-gray-200">
-      <h2 className="text-xl font-semibold  ">Change password</h2>
+    <div className="border-l  flex flex-col  gap-2 px-2 sm:px-6 border-gray-200">
+      <h2 className="sm:text-xl text-lg font-semibold  ">Change password</h2>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 mt-4"
+        className="flex flex-col gap-3 sm:gap-4 sm:mt-4"
       >
         <div>
           <label
-            className={`input input-bordered flex items-center  gap-2 ${
+            className={`input input-sm sm:input-md input-bordered flex items-center  gap-2 ${
               formState.errors.currentPassword ? " border-red-400" : ""
             } `}
           >
             <input
               {...register("currentPassword")}
               type={showCurrentPassword ? "text" : "password"}
-              className={`grow`}
+              className={`grow sm:placeholder:text-sm placeholder:text-xs`}
               placeholder="Current password"
             />
             <p
@@ -82,14 +92,14 @@ export default function ChangePassword() {
         </div>
         <div>
           <label
-            className={`input input-bordered flex items-center  gap-2 ${
+            className={`input input-sm sm:input-md input-bordered flex items-center  gap-2 ${
               formState.errors.newPassword ? " border-red-400" : ""
             } `}
           >
             <input
               {...register("newPassword")}
               type={showNewPassword ? "text" : "password"}
-              className={`grow`}
+              className={`grow sm:placeholder:text-sm placeholder:text-xs`}
               placeholder="New password"
             />
             <p
@@ -111,14 +121,14 @@ export default function ChangePassword() {
         </div>
         <div>
           <label
-            className={`input input-bordered flex items-center  gap-2 ${
+            className={`input input-sm sm:input-md input-bordered flex items-center  gap-2 ${
               formState.errors.repeatNewPassword ? " border-red-400" : ""
             } `}
           >
             <input
               {...register("repeatNewPassword")}
               type={showRepeatNewPassword ? "text" : "password"}
-              className={`grow`}
+              className={`grow sm:placeholder:text-sm placeholder:text-xs`}
               placeholder="Repeat new password"
             />
             <p
@@ -143,14 +153,14 @@ export default function ChangePassword() {
         {!formState.isSubmitting ? (
           <button
             type="submit"
-            className="btn bg-brand text-white hover:bg-blue-800 border-none"
+            className="btn btn-sm text-xs sm:text-sm sm:btn-md bg-brand text-white hover:bg-blue-800 border-none"
           >
             Change password
           </button>
         ) : (
           <button
             disabled={true}
-            className="btn bg-brand text-white hover:bg-blue-800 border-none"
+            className="btn btn-sm sm:btn-md bg-brand text-white hover:bg-blue-800 border-none"
           >
             <span className="loading loading-spinner text-white loading-sm"></span>
           </button>

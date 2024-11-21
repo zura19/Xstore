@@ -8,13 +8,13 @@ import AllCategoriesBtn from "../AllCategoriesBtn";
 
 export default function SidebarFull() {
   return (
-    <div className="drawer-side  z-50">
+    <div className="drawer-side   z-50">
       <label
         htmlFor="my-drawer"
-        aria-label="close sidebar"
+        aria-label="close sidebar z-50"
         className="drawer-overlay"
       ></label>
-      <ul className="menu bg-white flex gap-1 text-base-content min-h-full w-80">
+      <ul className="menu  bg-white flex gap-1 z-50 text-base-content min-h-full w-52  sm:w-80">
         <AllCategoriesBtn onSidebar={true} />
 
         <li className=" focus:bg-gray-200 active:bg-gray-200 ">

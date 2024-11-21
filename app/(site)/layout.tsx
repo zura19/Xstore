@@ -1,3 +1,4 @@
+import BottomNavbar from "../_ui/bottomNav/BottomNavbar";
 import Footer from "../_ui/Footer";
 import Navbar from "../_ui/navbar/Navbar";
 import ScrollableContentWrapper from "../_ui/ScrollBtn";
@@ -23,6 +24,7 @@ export default function RootLayout({
 
           {children}
         </main>
+        <BottomNavbar />
         <Footer />
       </ScrollableContentWrapper>
 

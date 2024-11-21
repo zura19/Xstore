@@ -38,7 +38,7 @@ export default function Cartboard({
         }}
         disabled={!selectedCart?.quantity}
         className={`join-item text-gray-500 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-500 ${
-          size === "sm" ? "h-8" : "h-12"
+          size === "sm" ? "sm:h-8 h-7" : "sm:h-12 h-10"
         }  bg-white btn min-h-2  border-gray-300 rounded-md outline-none hover:border-gray-300 hover:bg-brand hover:text-white transition-all duration-300 font-normal px-2`}
       >
         -
@@ -46,7 +46,7 @@ export default function Cartboard({
 
       <button
         className={`join-item text-gray-500 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-500 ${
-          size === "sm" ? "h-8 px-3" : "px-4 h-12"
+          size === "sm" ? "sm:h-8 h-7 px-3" : "px-4 sm:h-12 h-10"
         }  bg-white btn min-h-2  border-gray-300 rounded-md outline-none hover:border-gray-300 hover:bg-brand hover:text-white transition-all duration-300 font-normal `}
       >
         {selectedCart?.quantity || 0}
@@ -64,7 +64,7 @@ export default function Cartboard({
           selectedCart && selectedCart?.quantity === selectedCart?.stock
         }
         className={`join-item disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-500 text-gray-500 ${
-          size === "sm" ? "h-8" : "h-12"
+          size === "sm" ? "sm:h-8 h-7" : "sm:h-12 h-10"
         } bg-white btn min-h-2  border-gray-300 rounded-md outline-none hover:border-gray-300 hover:bg-brand hover:text-white transition-all duration-300  font-normal  px-2`}
       >
         +

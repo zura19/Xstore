@@ -27,6 +27,23 @@ export async function signInWithCredentials(values: {
   }
 }
 
+export async function signInWithGoogle() {
+  try {
+    await signIn("google");
+    // return { success: "User Signed up successfully" };
+  } catch (err) {
+    if (err instanceof AuthError) {
+      switch (err.type) {
+        // case "CredentialsSignin":
+        //   return { error: "Invalid username or password" };
+        default:
+          return { error: "Something went wrong" };
+      }
+    }
+    throw err;
+  }
+}
+
 export async function handleSignOut() {
   try {
     await signOut({ redirect: false });

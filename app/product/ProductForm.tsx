@@ -120,12 +120,12 @@ export default function ProductForm({
     <form
       method="dialog"
       onSubmit={handleSubmit(onSubmit)}
-      className="modal-box  p-4 flex flex-col gap-4 bg-white rounded-md max-w-[40%] overflow-auto h-full"
+      className="modal-box  p-4 flex flex-col gap-4 bg-white rounded-md max-w-[90%] md:max-w-[60%] lg:max-w-[55%] xl:max-w-[45%] overflow-auto h-full"
     >
       <h1 className="text-2xl font-bold text-gray-700 mb-0 leading-4">
         Create Product
       </h1>
-      <div className="grid sm:grid-cols-[auto_auto] grid-cols-[qfr] p-2 max-h-full pt-0 overflow-scroll justify-between  gap-y-2 ">
+      <div className="grid lg:grid-cols-[auto_auto] grid-cols-[1fr] p-2 max-h-full pt-0 overflow-scroll justify-between  gap-y-2 ">
         <CreateProductInput label="Title">
           <input
             {...register("title")}
@@ -181,7 +181,7 @@ export default function ProductForm({
           <select
             {...register("category")}
             defaultValue={""}
-            className={`create-select ${
+            className={`create-select  ${
               formState.errors.category &&
               "border-red-400 focus:outline-red-400"
             }`}

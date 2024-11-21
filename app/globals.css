@@ -7,7 +7,7 @@
     @apply input placeholder:text-gray-500 focus:outline-1 rounded-md focus:outline-brand bg-white border-gray-400 input-bordered;
   }
   .create-select {
-    @apply select select-bordered rounded-md placeholder:text-gray-500 focus:outline-1 focus:outline-brand bg-white border-gray-400 w-full max-w-xs;
+    @apply select select-bordered rounded-md placeholder:text-gray-500 focus:outline-1 focus:outline-brand bg-white border-gray-400 w-full;
   }
 }
 
@@ -31,18 +31,14 @@
   }
 }
 
-/* .range::-webkit-slider-runnable-track {
-  background-color: #1c61e7;
-} */
-
-/*
-.range::-moz-range-track {
-  background-color: #1c61e7;
+.InterestedSwiper .swiper-pagination {
+  /* position: absolute; */
+  /* Adjust as needed */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  /* margin-top: 50px; */
+  transform: translateY(60%);
 }
-
-.range::-moz-range-thumb {
-  background-color: #1c61e7;
-} */
 
 @media (prefers-reduced-motion) {
   .skeleton {

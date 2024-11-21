@@ -33,7 +33,9 @@ export default function CartItem({ cartItem }: { cartItem: IcartItem }) {
       </div>
       <div className="flex  flex-col gap-2">
         <div className="flex justify-between">
-          <p className="text-lg leading-5 font-medium">{cartItem.title}</p>
+          <p className="text-base sm:text-lg leading-5 font-medium">
+            {cartItem.title}
+          </p>
           <button
             onClick={(e) => {
               e.stopPropagation();

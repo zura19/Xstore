@@ -8,6 +8,7 @@ import { HiX } from "react-icons/hi";
 import CardSwiper from "./CardSwiper";
 import DeleteOrUpdate from "./DeleteOrUpdate";
 import { useSession } from "next-auth/react";
+import { useWindowWidth } from "@/lib/useWindowWidth";
 
 export interface Icard {
   id: string;
@@ -45,6 +46,7 @@ export default function Card({
 }: Icard) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const { data: userInfo } = useSession();
+  const width = useWindowWidth();
 
   console.log(images);
 
@@ -97,7 +99,7 @@ export default function Card({
       <div className="card-body cursor-default  p-2 pt-0 mt-2">
         <div className="flex flex-col mb-2 gap-2">
           <div className="flex items-center justify-between">
-            <h2 className="card-title text-base line-clamp-1 text-gray-700 leading-5">
+            <h2 className="card-title text-sm sm:text-base line-clamp-1 text-gray-700 leading-5">
               {title}
             </h2>
             {userInfo?.user.role === "admin" ? (
@@ -151,9 +153,11 @@ export default function Card({
             </p>
           ) : (
             <p className="text-brand font-medium leading-4">
-              <span className="line-through text-gray-500">
-                {formatCurrency(price)}
-              </span>{" "}
+              {width < 768 ? null : (
+                <span className="line-through text-gray-500">
+                  {formatCurrency(price)}{" "}
+                </span>
+              )}
               <span className=" font-semibold">
                 {formatCurrency(price - (price * discount) / 100)}
               </span>
@@ -163,9 +167,9 @@ export default function Card({
         <div className="card-actions justify-end mt-auto">
           <Link
             href={`/product/${title.replaceAll(" ", "-")}`}
-            className="btn bg-brand border-none hover:bg-blue-700 min-h-4 h-10   text-white w-full"
+            className="btn bg-brand border-none  hover:bg-blue-700 min-h-4 h-10   text-white w-full"
           >
-            <span>View Product</span>
+            <span>{width < 640 ? "View" : "View Product"}</span>
           </Link>
         </div>
       </div>

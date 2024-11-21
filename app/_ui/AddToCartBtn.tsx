@@ -33,7 +33,7 @@ export default function AddToCartBtn({
   }
 
   return (
-    <>
+    <div className="flex items-center w-full lg:w-[60%] gap-4">
       <Cartboard
         productData={{ id, title, stock, price, image, quantity }}
         id={id}
@@ -42,11 +42,11 @@ export default function AddToCartBtn({
         onClick={handleClick}
         // htmlFor="cart"
         htmlFor={!isProductInCart(id) ? "" : "cart"}
-        className="btn min-h-9 h-12 rounded-md flex-1 bg-brand hover:bg-blue-700 transition-all duration-300 border-none text-white"
+        className="btn h-10 min-h-9 sm:h-12 grow w-full rounded-md flex-1 bg-brand hover:bg-blue-700 transition-all duration-300 border-none text-white"
       >
         {" "}
         {!isProductInCart(id) ? "Add to cart" : "Remove from cart"}
       </label>
-    </>
+    </div>
   );
 }

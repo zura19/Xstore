@@ -2,6 +2,7 @@ import { getOrdersByUserId } from "@/app/actions/orderActions";
 import { auth } from "@/auth";
 import { IOrder } from "@/models/orderModel";
 import Order from "./Order";
+import ReturnHomePageBtn from "../../ReturnHomePageBtn";
 // import { IcartItem } from "@/store/productSlice";
 
 export default async function OrderList() {
@@ -12,6 +13,14 @@ export default async function OrderList() {
   const dates = orders.flatMap((order) => order.createdAt);
 
   console.log(dates);
+
+  if (products.length === 0)
+    return (
+      <div className="text-center   py-8">
+        <h1 className="font-bold text-2xl py-2">No Orders yet</h1>
+        <ReturnHomePageBtn className="py-2 px-2" />
+      </div>
+    );
 
   return (
     <div className="overflow-x-auto">

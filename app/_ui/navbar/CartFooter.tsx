@@ -14,8 +14,8 @@ export default function CartFooter() {
   }, 0);
 
   return (
-    <div className="border-t  flex flex-col gap-2 mt-auto p-4 justify-end border-gray-300">
-      <div className="flex text-lg font-semibold mb-4 justify-between">
+    <div className="border-t  flex flex-col gap-2 mt-auto p-2 sm:p-4 justify-end border-gray-300">
+      <div className="flex text-lg font-semibold sm:mb-4 justify-between">
         <p>Total:</p>
         <p className="text-brand">{formatCurrency(totalPrice)}</p>
       </div>
@@ -25,7 +25,7 @@ export default function CartFooter() {
 
       <Link
         href={"/checkout"}
-        className="btn min-h-12 h-12 rounded-md flex-1 bg-green-600 hover:bg-green-700 transition-all duration-300 border-none text-white"
+        className="btn min-h-10 sm:h-12 rounded-md flex-1 bg-green-600 hover:bg-green-700 transition-all duration-300 border-none text-white"
       >
         Buy now
       </Link>

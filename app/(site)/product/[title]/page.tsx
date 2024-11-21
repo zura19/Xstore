@@ -32,7 +32,7 @@ export default async function Page({ params }: ProductPageProps) {
   return (
     <div className="">
       <div className=" bg-white ">
-        <div className="max-w-[90%] mx-auto grid  gap-x-10 grid-cols-[1fr_10fr] p-4">
+        <div className="md:max-w-[90%] mx-auto grid gap-y-4  md:gap-x-10 grid-cols-1 md:grid-cols-[1fr_10fr] p-4">
           <ImageSwiper
             title={product.title}
             price={product.price}
@@ -44,23 +44,23 @@ export default async function Page({ params }: ProductPageProps) {
             category={product.category}
             id={String(product._id)}
           />
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col md:gap-4 gap-3">
             <div className="flex gap-2">
               {product.discount > 0 && (
-                <p className=" bg-brand text-sm px-4 rounded-full  text-white py-1">
+                <p className=" bg-brand md:text-sm text-xs px-3 md:px-4 rounded-full  text-white py-1">
                   -{product.discount}%
                 </p>
               )}
               {product.new && (
                 <p
-                  className={`bg-green-600 rounded-full px-4 text-white text-sm py-1`}
+                  className={`bg-green-600 rounded-full px-4 text-white text-sm py-2`}
                 >
                   New
                 </p>
               )}
             </div>
-            <div className="flex  items-start justify-between py-2">
-              <h1 className="text-3xl font-semibold leading-6  mb-6">
+            <div className="flex  items-start justify-between py-1">
+              <h1 className="md:text-3xl text-xl font-semibold md:leading-6  leading-5  mb-2 md:mb-6">
                 {product.title}
               </h1>
               {session?.user?.role === "admin" ? (
@@ -82,12 +82,12 @@ export default async function Page({ params }: ProductPageProps) {
               ) : null}
             </div>
             {!product.discount ? (
-              <p className="text-brand text-4xl mb-4 font-medium leading-4">
+              <p className="text-brand md:text-4xl md:mb-4 text-2xl mb-1 font-medium leading-4">
                 {formatCurrency(product.price)}
               </p>
             ) : (
-              <p className="text-brand text-4xl mb-4 font-medium leading-4">
-                <span className="line-through text-2xl text-gray-500">
+              <p className="text-brand md:text-4xl md:mb-4 text-2xl mb-1 font-medium leading-4">
+                <span className="line-through md:text-2xl text-lg text-gray-500">
                   {formatCurrency(product.price)}
                 </span>{" "}
                 <span className=" font-semibold">
@@ -125,7 +125,7 @@ export default async function Page({ params }: ProductPageProps) {
               )}
             </div>
             {product.stock > 0 ? (
-              <div className="flex items-center gap-4">
+              <div className="flex  flex-col lg:flex-row items-center gap-3 sm:gap-4">
                 {/* <Cartboard stock={product.stock} /> */}
                 <AddToCartBtn
                   id={String(product._id)}
@@ -139,7 +139,7 @@ export default async function Page({ params }: ProductPageProps) {
                   image={product.mainImage}
                   quantity={1}
                 />
-                <button className="btn min-h-9 h-12 rounded-md flex-1 bg-green-600 hover:bg-green-700 transition-all duration-300 border-none text-white">
+                <button className="btn w-full grow  min-h-9   h-12 rounded-md flex-1 bg-green-600 hover:bg-green-700 transition-all duration-300 border-none text-white">
                   Buy now
                 </button>
               </div>
@@ -147,13 +147,15 @@ export default async function Page({ params }: ProductPageProps) {
           </div>
         </div>
       </div>
-      <div className={`max-w-[80%] p-4 mx-auto`}>
+      <div className={`md:max-w-[80%] p-4 mx-auto`}>
         <div className="bg-white p-4 rounded-md">
-          <h2 className="text-3xl font-semibold mb-6">Specifications</h2>
+          <h2 className="sm:text-3xl text-2xl font-semibold mb-4 sm:mb-6">
+            Specifications
+          </h2>
           <div className="flex flex-col  gap-y-4">
             {Object.entries(product.specification).map(([key, value]) => (
               <p
-                className="text-lg leading-4 border-b border-gray-200 px-2 py-3 "
+                className="sm:text-lg leading-4 border-b border-gray-200 px-1 py-2 sm:px-2 sm:py-3 "
                 key={key}
               >
                 <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong>{" "}

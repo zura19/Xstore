@@ -45,7 +45,7 @@ export default async function page({ searchParams, params }: PageProps) {
   const searchparams = await searchParams;
 
   return (
-    <div className="max-w-[90%] p-4 mx-auto  grid gap-y-4 gap-8 grid-cols-[3fr_10fr]">
+    <div className="md:max-w-[90%] p-4 mx-auto  grid gap-y-4 gap-8 grid-cols-1 sm:grid-cols-[3fr_10fr]">
       <Breadcrumbs />
       <Suspense fallback={<FilterSkeleton />}>
         <FilterSuspanse searchParam={{ search: searchparams.search }} />
@@ -69,7 +69,7 @@ export default async function page({ searchParams, params }: PageProps) {
                 : "",
           }}
         >
-          <p className="text-2xl  font-semibold mb-4">
+          <p className="sm:text-2xl text-xl mb-1  font-semibold sm:mb-4">
             Category:{" "}
             {`${
               param.category &&

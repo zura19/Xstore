@@ -16,12 +16,12 @@ export default function Cartoverview() {
     <div className="drawer-side  ">
       <label
         htmlFor="cart"
-        aria-label="close sidebar"
-        className="drawer-overlay  fixed inset-0  "
+        aria-label="close sidebar "
+        className="drawer-overlay w-full inset-0  "
       ></label>
-      <ul className="menu grid grid-rows-[auto_auto_1fr]  p-0 bg-white text-base-cotent  min-h-full w-[340px] ">
-        <div className="flex px-2 items-center justify-between py-4 border-b border-gray-300">
-          <h1 className="text-gray-800 text-xl  font-semibold">
+      <ul className="menu grid grid-rows-[auto_auto_1fr]    p-0 bg-white text-base-cotent  min-h-full w-[230px]  md:w-[340px] ">
+        <div className="flex px-2 items-center justify-between  py-4 border-b border-gray-300">
+          <h1 className="text-gray-800 text-lg sm:text-xl  font-semibold ">
             Shopping Cart
           </h1>
           <label
@@ -33,7 +33,7 @@ export default function Cartoverview() {
           </label>
         </div>
         {(!cart || cart.length === 0) && <CartEmpty />}
-        <div className="overflow-scroll max-h-[517px] ">
+        <div className="overflow-scroll max-h-[375px] sm:max-h-[517px] ">
           {cart.map((product) => (
             <CartItem key={product.id} cartItem={product} />
           ))}

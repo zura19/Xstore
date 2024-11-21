@@ -10,6 +10,7 @@ import { Navigation, Thumbs, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/swiper-bundle.css";
+import { useWindowWidth } from "@/lib/useWindowWidth";
 
 export default function ProductSwiper({
   randomProducts,
@@ -37,6 +38,7 @@ export default function ProductSwiper({
   }[];
 }) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const width = useWindowWidth();
 
   // const data = [1, 2, 3, 4, 6];
   return (
@@ -46,14 +48,14 @@ export default function ProductSwiper({
       className=""
     >
       <Swiper
-        slidesPerView={4}
+        slidesPerView={width < 640 ? 2 : width < 1024 ? 3 : 4}
         loop={true}
         spaceBetween={30}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination, Navigation, Thumbs]}
-        className="mySwiper"
+        className="InterestedSwiper"
       >
         {randomProducts.map((product) => (
           <SwiperSlide key={product._id}>

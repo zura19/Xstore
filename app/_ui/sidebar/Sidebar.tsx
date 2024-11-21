@@ -7,9 +7,9 @@ import SidebarFull from "./SidebarFull";
 
 export default function Sidebar() {
   return (
-    <div className="drawer">
-      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-      <div className="flex flex-col gap-4  items-center bg-white p-2 border-r border-gray-400 border-opacity-30">
+    <div className="drawer z-[51] w-0 sm:w-auto overflow-hidden   ">
+      <input id="my-drawer" type="checkbox" className="drawer-toggle  " />
+      <div className="flex flex-col gap-4   items-center bg-white p-2 border-r border-gray-400 border-opacity-30">
         <SidebarItem main={true}>
           <HiMiniBars3 size={20} color="white" />
         </SidebarItem>

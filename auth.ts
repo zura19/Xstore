@@ -3,11 +3,16 @@ import Credentials from "next-auth/providers/credentials";
 import { connectToDB } from "./lib/db";
 import User from "./models/userModel";
 import bcrypt from "bcryptjs";
+import Google from "next-auth/providers/google";
 
 const protectedPages = ["/account"];
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
+    Google({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
     Credentials({
       credentials: {
         username: { type: "username", placeholder: "Username" },

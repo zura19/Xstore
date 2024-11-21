@@ -3,7 +3,7 @@ import Orderdetails from "@/app/_ui/checkout/Orderdetails";
 
 export default function Checkout() {
   return (
-    <div className="w-[80%] mx-auto  grid grid-cols-[2fr_1fr]  gap-12 py-6">
+    <div className="lg:w-[90%]  xl:w-[80%] px-4 mx-auto  grid md:grid-cols-[2fr_1fr] gap-6 lg:gap-12 py-6">
       <DeliveryForm />
       <Orderdetails />
     </div>

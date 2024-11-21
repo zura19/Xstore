@@ -41,11 +41,18 @@ export default function ProductsList({
         variants={listContainer}
         initial="hidden"
         animate="show"
-        className={`grid  ${cols === 5 && "grid-cols-[1fr_1fr_1fr_1fr_1fr]"} ${
-          cols === 4 && "grid-cols-[1fr_1fr_1fr_1fr]"
-        } ${cols === 3 && "grid-cols-[1fr_1fr_1fr]"} ${
-          cols === 2 && "grid-cols-[1fr_1fr]"
-        } ${cols === 1 && "grid-cols-[1fr]"} gap-10 `}
+        className={`grid  ${
+          cols === 5 &&
+          "xl:grid-cols-[1fr_1fr_1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr] sm:grid-cols-[1fr_1fr_1fr] grid-cols-[1fr_1fr]"
+        } ${
+          cols === 4 &&
+          "xl:grid-cols-[1fr_1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] grid-cols-[1fr]"
+        }${
+          cols === 3 &&
+          "md:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] grid-cols-[1fr]"
+        } ${cols === 2 && "sm:grid-cols-[1fr_1fr] grid-cols-[1fr]"} ${
+          cols === 1 && "grid-cols-[1fr]"
+        } sm:gap-10 gap-4`}
         style={{ listStyle: "none", padding: 0 }}
       >
         {products?.map((product: Iproduct | IFavoritesItem) => (
@@ -80,11 +87,18 @@ export default function ProductsList({
   if (!isAnimation)
     return (
       <div
-        className={`grid ${cols === 5 && "grid-cols-[1fr_1fr_1fr_1fr_1fr]"} ${
-          cols === 4 && "grid-cols-[1fr_1fr_1fr_1fr]"
-        } ${cols === 3 && "grid-cols-[1fr_1fr_1fr]"} ${
-          cols === 2 && "grid-cols-[1fr_1fr]"
-        } ${cols === 1 && "grid-cols-[1fr]"} gap-10 `}
+        className={`grid ${
+          cols === 5 &&
+          "xl:grid-cols-[1fr_1fr_1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr] sm:grid-cols-[1fr_1fr_1fr] grid-cols-[1fr_1fr]"
+        } ${
+          cols === 4 &&
+          "xl:grid-cols-[1fr_1fr_1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] grid-cols-[1fr]"
+        } ${
+          cols === 3 &&
+          "md:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] grid-cols-[1fr]"
+        } ${cols === 2 && "sm:grid-cols-[1fr_1fr] grid-cols-[1fr]"} ${
+          cols === 1 && "grid-cols-[1fr]"
+        } gap-10 `}
       >
         {products?.map((product: Iproduct | IFavoritesItem) => (
           <Card

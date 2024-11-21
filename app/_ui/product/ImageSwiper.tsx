@@ -13,6 +13,7 @@ import "swiper/css/thumbs";
 import "swiper/css/scrollbar";
 import SwiperBtn from "../SwiperBtn";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useWindowWidth } from "@/lib/useWindowWidth";
 
 export default function ImageSwiper({
   id,
@@ -37,13 +38,15 @@ export default function ImageSwiper({
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
+  const width = useWindowWidth();
+
   const imagesArr: string[] = [mainImage, ...images];
 
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-[500px]  transition-all  duration-300"
+      className="max-w-[500px]   transition-all  duration-300"
     >
       <Swiper
         style={{
@@ -97,29 +100,31 @@ export default function ImageSwiper({
           </>
         )}
       </Swiper>
-      <Swiper
-        // @ts-expect-error idk
-        onActiveIndexChange={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="title-images-swiper thumbs mt-1.5 h-32 rounded-md border border-gray-200 shadow-sm "
-      >
-        {imagesArr.map((image, index) => (
-          <SwiperSlide key={index} className="relative rounded-md px-4">
-            <button className={``}>
-              <Image
-                fill
-                className="object-contain rounded-md "
-                src={image}
-                alt="fd"
-              />
-            </button>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {width < 768 ? null : (
+        <Swiper
+          // @ts-expect-error idk
+          onActiveIndexChange={setThumbsSwiper}
+          spaceBetween={10}
+          slidesPerView={4}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="title-images-swiper thumbs mt-1.5 h-32 rounded-md border border-gray-200 shadow-sm "
+        >
+          {imagesArr.map((image, index) => (
+            <SwiperSlide key={index} className="relative rounded-md px-4">
+              <button className={``}>
+                <Image
+                  fill
+                  className="object-contain rounded-md "
+                  src={image}
+                  alt="fd"
+                />
+              </button>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 }

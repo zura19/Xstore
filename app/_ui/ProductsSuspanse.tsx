@@ -46,9 +46,9 @@ export default async function ProductsSuspanse({
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex sm:flex-row flex-col sm:items-center justify-between">
         {children}
-        <p className="text-sm font-medium uppercase  text-gray-600 mb-4">
+        <p className="sm:text-sm text-xs font-medium uppercase  text-gray-600 mb-4">
           Results: {`${total}`}
         </p>
       </div>

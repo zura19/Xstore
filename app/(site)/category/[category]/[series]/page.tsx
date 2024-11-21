@@ -47,7 +47,7 @@ export default async function page({ searchParams, params }: PageProps) {
   console.log(param);
 
   return (
-    <div className="max-w-[90%] p-4 mx-auto grid gap-y-4 gap-8 grid-cols-[3fr_10fr]">
+    <div className="md:max-w-[90%] p-4 mx-auto grid gap-y-4 gap-8 sm:grid-cols-[3fr_10fr]">
       <Breadcrumbs />
       <Suspense fallback={<FilterSkeleton />}>
         <FilterSuspanse searchParam={{ search: searchparams.search }} />
@@ -59,14 +59,13 @@ export default async function page({ searchParams, params }: PageProps) {
             series: param.series?.replaceAll("-", " "),
           }}
         >
-          <p className="text-2xl  font-semibold mb-4">
-            Category:{" "}
+          <p className="sm:text-2xl text-xl mb-1  font-semibold sm:mb-4">
+            Series:{" "}
             {`${
-              param.category &&
-              param.category.replace(
-                param.category[0],
-                param.category[0].toLocaleUpperCase()
-              )
+              param.series &&
+              param.series
+                .replace(param.series[0], param.series[0].toLocaleUpperCase())
+                .replaceAll("-", " ")
             }`}
           </p>
         </ProductsSuspanse>

@@ -6,7 +6,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/lib/zod";
 import { z } from "zod";
 import { BiHide, BiShow } from "react-icons/bi";
-import { signInWithCredentials } from "@/app/actions/authActions";
+import {
+  signInWithCredentials,
+  signInWithGoogle,
+} from "@/app/actions/authActions";
 import toast from "react-hot-toast";
 import { getSession } from "next-auth/react";
 
@@ -41,6 +44,9 @@ export default function LoginForm({ closeModal }: { closeModal: () => void }) {
     await getSession();
     // }
   }
+
+  // async function signInWithGoogle() {
+  // }
 
   return (
     <>
@@ -130,7 +136,13 @@ export default function LoginForm({ closeModal }: { closeModal: () => void }) {
 
         <div className="divider mb-1 text-gray-700">OR</div>
       </form>
-      <form className="px-4">
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await signInWithGoogle();
+        }}
+        className="px-4"
+      >
         <LoginGoogle />
       </form>
     </>

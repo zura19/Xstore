@@ -47,7 +47,7 @@ const ScrollableContentWrapper = ({
       <AnimatePresence>
         {isButtonVisible && (
           <motion.button
-            className="fixed bottom-5 right-5 p-3 cursor-pointer shadow-md text-base bg-primary text-white rounded-full"
+            className="fixed z-10  sm:bottom-5 sm:right-5  bottom-16 right-5  p-2.5 sm:p-3 cursor-pointer shadow-md text-base bg-primary text-white rounded-full"
             onClick={scrollToTop}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

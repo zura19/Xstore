@@ -44,12 +44,12 @@ export default function CardSwiper({
       className="myswiper rounded-md  w-full h-52 "
     >
       {imagesArr.map((image) => (
-        <SwiperSlide key={image} className="relative   cursor-pointer ">
+        <SwiperSlide key={image} className="relative s   cursor-pointer ">
           {/* <div className="flex  w-full  items-cente object-contain justify-center"> */}
           <Image
             fill
             quality={100}
-            className="transition-all object-contain p-1.5  duration-700 "
+            className="transition-all object-contain p-1.5   duration-700 "
             src={image}
             alt="fd"
           />
