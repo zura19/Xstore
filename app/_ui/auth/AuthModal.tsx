@@ -34,9 +34,7 @@ export default function AuthModal({ bottomNav }: { bottomNav?: boolean }) {
             // @ts-expect-error open modal
             authRef.current.showModal();
           }}
-          // href={to}
         >
-          {/* {children} */}
           <HiOutlineUser size={20} />
 
           <span className="btm-nav-label leading-4 font-semibold">User</span>

@@ -11,7 +11,7 @@ export const productSchema = z.object({
 
   stock: z
     .number({ required_error: "stock is required" })
-    .min(1, "Stock must be more than 0"),
+    .min(0, "Stock must be more or equal than 0"),
 
   new: z.enum(["true", "false"]).transform((value) => value === "true"),
 

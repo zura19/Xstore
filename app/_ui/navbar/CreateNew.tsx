@@ -4,11 +4,22 @@ import { HiOutlineDocumentPlus } from "react-icons/hi2";
 import ProductForm from "../../product/ProductForm";
 
 export default function CreateNew() {
-  const createModalRef = useRef(null);
+  const createModalRef = useRef<HTMLDialogElement>(null);
+
+  const closeModal = () => {
+    if (
+      createModalRef.current &&
+      typeof createModalRef.current.close === "function"
+    ) {
+      createModalRef.current.close();
+    } else {
+      console.error("Dialog element is not initialized correctly.");
+    }
+  };
+
   return (
     <>
       <button
-        // @ts-expect-error model
         onClick={() => createModalRef.current?.showModal()}
         className="btn w-12 h-12 btn-ghost   btn-circle "
       >
@@ -22,8 +33,8 @@ export default function CreateNew() {
         ref={createModalRef}
         className="modal  sm:fixed  absolute -z-20"
       >
-        <ProductForm />
-        <form method="dialog" className="modal-backdrop">
+        <ProductForm closeModal={closeModal} />
+        <form method="dialog" className="">
           <button>close</button>
         </form>
       </dialog>

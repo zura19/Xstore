@@ -3,7 +3,6 @@ import { auth } from "@/auth";
 import { IOrder } from "@/models/orderModel";
 import Order from "./Order";
 import ReturnHomePageBtn from "../../ReturnHomePageBtn";
-// import { IcartItem } from "@/store/productSlice";
 
 export default async function OrderList() {
   const session = await auth();
@@ -24,8 +23,7 @@ export default async function OrderList() {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table">
-        {/* head */}
+      <table className="table  text-xs sm:text-sm">
         <thead>
           <tr>
             <th>
@@ -36,7 +34,6 @@ export default async function OrderList() {
             <th>Product</th>
             <th>Date</th>
             <th>Total</th>
-            {/* <th>Favorite Color</th> */}
           </tr>
         </thead>
         <tbody>

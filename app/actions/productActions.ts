@@ -222,7 +222,7 @@ export async function updateProduct(id, values) {
 
     console.log(values);
     const isTitleExsists = await Product.findOne({ title: values.title });
-    if (isTitleExsists) {
+    if (isTitleExsists && isTitleExsists?.title !== values?.title) {
       return { error: "Title alredy exists" };
     }
 

@@ -46,8 +46,10 @@ const ramsArr = [
 ];
 
 export default function ProductForm({
+  closeModal,
   product,
 }: {
+  closeModal: () => void;
   product?: {
     id: string;
     title: string;
@@ -103,6 +105,7 @@ export default function ProductForm({
       } else {
         toast.success("Product added successfully");
         reset();
+        closeModal();
       }
     } else {
       const update = await updateProduct(product.id, values);
@@ -110,7 +113,8 @@ export default function ProductForm({
         toast.error(update.error);
         setError(update.error);
       } else {
-        toast.success("Product added successfully");
+        closeModal();
+        toast.success("Product updated successfully");
         reset();
       }
     }

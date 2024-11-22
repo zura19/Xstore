@@ -33,12 +33,23 @@ export default function DeleteOrUpdate({
     };
   };
 }) {
-  const updateModalRef = useRef(null);
+  const updateModalRef = useRef<HTMLDialogElement>(null);
 
   async function handleDelete() {
     await deleteProduct(product.id);
     toast.success("Product deleted successfully");
   }
+
+  const closeModal = () => {
+    if (
+      updateModalRef.current &&
+      typeof updateModalRef.current.close === "function"
+    ) {
+      updateModalRef.current.close();
+    } else {
+      console.error("Dialog element is not initialized correctly.");
+    }
+  };
 
   return (
     <div className="dropdown dropdown-top dropdown-end">
@@ -61,7 +72,6 @@ export default function DeleteOrUpdate({
         </li>
 
         <li
-          // @ts-expect-error idk
           onClick={() => updateModalRef?.current?.showModal()}
           className="p-2  focus:bg-red-500   hover:bg-gray-100 rounded-md transition-all duration-300"
         >
@@ -70,7 +80,7 @@ export default function DeleteOrUpdate({
       </ul>
 
       <dialog id="update_modal" ref={updateModalRef} className="modal">
-        <ProductForm product={product} />
+        <ProductForm closeModal={closeModal} product={product} />
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>

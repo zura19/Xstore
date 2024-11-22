@@ -47,13 +47,13 @@ export default async function Page({ params }: ProductPageProps) {
           <div className="flex flex-col md:gap-4 gap-3">
             <div className="flex gap-2">
               {product.discount > 0 && (
-                <p className=" bg-brand md:text-sm text-xs px-3 md:px-4 rounded-full  text-white py-1">
+                <p className=" bg-brand md:text-sm text-xs px-3 md:py-2 md:px-4 rounded-full  text-white py-1">
                   -{product.discount}%
                 </p>
               )}
               {product.new && (
                 <p
-                  className={`bg-green-600 rounded-full px-4 text-white text-sm py-2`}
+                  className={`bg-green-600 md:text-sm text-xs px-3 md:py-2 md:px-4 rounded-full  text-white py-1`}
                 >
                   New
                 </p>

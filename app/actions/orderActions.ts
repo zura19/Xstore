@@ -43,6 +43,7 @@ export async function addOrder(order: IOrder) {
 
 export async function getOrdersByUserId(id: string) {
   try {
+    await connectToDB();
     const orders = await Order.find({ userId: id });
     return orders;
   } catch (err) {
