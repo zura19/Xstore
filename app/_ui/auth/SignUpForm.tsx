@@ -43,7 +43,7 @@ export default function SignUpForm({ closeModal }: { closeModal: () => void }) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="  p-4  ">
+    <form onSubmit={handleSubmit(onSubmit)} className="p-1 sm:p-4">
       <h1 className="mb-2 text-2xl font-bold">Sign Up</h1>
 
       <div className="form-control">

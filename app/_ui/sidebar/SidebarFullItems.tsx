@@ -24,12 +24,14 @@ export default function SidebarFullItems({
   }
 
   return (
-    <div className="dropdown dropdown-hover flex  p-0 gap-2 focus:bg-gray-200 active:bg-gray-200  dropdown-right">
+    <div
+      className={`dropdown dropdown-hover flex  p-0 gap-2 focus:bg-gray-200 active:bg-gray-200  dropdown-right`}
+    >
       <label
         htmlFor="my-drawer"
         onClick={() => handleNavigation(to)}
         tabIndex={0}
-        className="flex items-center flex-1 rounded-md p-2 active:bg-gray-200 focus:bg-gray-100 active:text-gray-900 active:rounded-md  hover:cursor-pointer gap-1.5"
+        className="flex items-center  w-[10%] flex-1 rounded-md p-2 active:bg-gray-200 focus:bg-gray-100 active:text-gray-900 active:rounded-md  hover:cursor-pointer gap-1.5"
       >
         {children}
         <p className="font-medium ">{label}</p>

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function LaptopsAndPhones() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 max-w-[100%] mx-auto gap-y-6 gap-12 ">
+    <div className="grid grid-cols-[1fr] sm:grid-cols-2  md:grid-cols-3 max-w-[100%] mx-auto gap-y-6 gap-12 ">
       <Link
         href={"/category/laptop"}
         className="bg-white shadow-md group   bg-gradient-to-r from-blue-100 via-blue-300 to-cyan-500  border border-gray-200 rounded-md flex-grow sm:p-4 p-2"
@@ -12,7 +12,7 @@ export default function LaptopsAndPhones() {
         <p className=" text-xl sm:text-2xl font-semibold mb-2 sm:mb-6">
           Laptops
         </p>
-        <div className="relative justify-self-center lg:w-44 lg:h-44 max-h-56 max-w-56  min-h-32 min-w-32">
+        <div className="relative  mx-auto lg:w-44 lg:h-44 max-h-56 max-w-56  min-h-32 min-w-32">
           <Image
             src={
               "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111902_mbp14-silver2.png"
@@ -32,9 +32,10 @@ export default function LaptopsAndPhones() {
         <p className=" text-xl sm:text-2xl font-semibold mb-2 sm:mb-6">
           Phones
         </p>
-        <div className="relative justify-self-center lg:w-44 lg:h-44 max-h-56 max-w-56  min-h-32 min-w-32">
+        <div className="relative mx-auto lg:w-44 lg:h-44 max-h-56 max-w-56  min-h-32 min-w-32">
           <Image
-            src={"https://pngimg.com/uploads/iphone16/iphone16_PNG13.png"}
+            // src={"https://pngimg.com/uploads/iphone16/iphone16_PNG13.png"}
+            src={"https://pngimg.com/uploads/iphone16/iphone16_PNG38.png"}
             alt="Laptop"
             quality={100}
             fill
@@ -50,10 +51,13 @@ export default function LaptopsAndPhones() {
         <p className=" text-xl sm:text-2xl font-semibold mb-2 sm:mb-6">
           Headphones
         </p>
-        <div className="relative justify-self-center lg:w-44 lg:h-44 max-h-56 max-w-56  min-h-32 min-w-32">
+        <div className="relative mx-auto lg:w-44 lg:h-44 max-h-56 max-w-56  min-h-32 min-w-32">
           <Image
+            // src={
+            //   "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/121204-airpods-4-anc.png"
+            // }
             src={
-              "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/121204-airpods-4-anc.png"
+              "https://www.alasil.ae/cdn/shop/files/airpods-max-silver-witb-Photoroom.png?v=1709129062"
             }
             alt="Laptop"
             quality={100}

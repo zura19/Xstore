@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       "media-ik.croma.com",
       "pngimg.com",
       "techshopeg.com",
+      "www.alasil.ae",
     ],
   },
 };

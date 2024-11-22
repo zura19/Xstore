@@ -50,7 +50,10 @@ export default function LoginForm({ closeModal }: { closeModal: () => void }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="p-4 text-gray-700">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="p-1 sm:p-4 text-gray-700"
+      >
         <h1 className="mb-2 text-2xl font-bold">Log In</h1>
         <div className="form-control">
           <label className="label">

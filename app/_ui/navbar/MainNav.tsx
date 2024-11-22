@@ -60,7 +60,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`${
         isVisible
-          ? "fixed top-0  right-0 left-0  md:left-[4.5%] sm:left-[8%] xl:left-[4.5%]"
+          ? "fixed top-0  right-0 left-0  md:left-[4.5%] sm:left-[8%] xl:left-[4.1%] "
           : " relative fixed"
       }sm:z-30  z-20 bg-indigo-100 shadow-md`}
     >

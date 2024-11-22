@@ -34,7 +34,7 @@ export default function CreateNew() {
         className="modal  sm:fixed  absolute -z-20"
       >
         <ProductForm closeModal={closeModal} />
-        <form method="dialog" className="">
+        <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
       </dialog>
