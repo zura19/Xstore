@@ -5,14 +5,21 @@ import { HiOutlineUser } from "react-icons/hi2";
 import { redirect } from "next/navigation";
 import SignOutBtn from "@/app/_ui/account/SignOutBtn";
 
+export async function generateMetadata() {
+  const session = await auth();
+
+  return {
+    title: `Xstore - ${session?.user.name}`,
+    description: `Xstore - ${session?.user.name}`,
+  };
+}
+
 export default async function page() {
   const session = await auth();
 
   if (!session) {
     redirect("/");
   }
-
-  console.log(session);
 
   return (
     <div className="border-l py-4 flex  flex-col gap-2 px-6 border-gray-200">
@@ -31,7 +38,7 @@ export default async function page() {
         </div>
       )}
       <h1 className="self-center sm:text-xl text-lg font-semibold">
-        Hello, {session?.user.name}
+        Hello, {session?.user.name.split(" ")[0]}
       </h1>
       <SignOutBtn />
     </div>

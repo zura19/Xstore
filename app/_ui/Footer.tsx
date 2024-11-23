@@ -3,7 +3,10 @@ import Logo from "./navbar/Logo";
 
 export default function Footer() {
   return (
-    <footer className="footer bg-base-100 text-base-content py-14 p-10">
+    <footer
+      id="footer"
+      className="footer bg-base-100 text-base-content py-14 p-10"
+    >
       <aside>
         <Logo />
         <p>

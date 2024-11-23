@@ -25,8 +25,6 @@ export default async function ProductsSuspanse({
   const productsData = await getFilteredProducts(searchParams);
   const { products, total } = productsData;
 
-  console.log(products);
-
   if ("error" in productsData)
     return (
       <div className="grid   place-content-center  px-4">

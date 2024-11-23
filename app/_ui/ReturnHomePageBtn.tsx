@@ -9,7 +9,7 @@ export default function ReturnHomePageBtn({
   return (
     <Link
       href="/"
-      className={` ${className}   inline-block rounded bg-brand px-5 py-3 text-sm font-medium transition duration-300 text-white hover:bg-blue-700 focus:outline-none focus:ring`}
+      className={` ${className}   inline-block rounded bg-brand sm:px-5 sm:py-3 px-3 py-2 text-xs sm:text-sm font-medium transition duration-300 text-white hover:bg-blue-700 focus:outline-none focus:ring`}
     >
       Go Back Home page
     </Link>

@@ -17,8 +17,6 @@ export default async function InterestedProducts({
     return { ...prod, _id: String(prod._id) };
   });
 
-  console.log(rand);
-
   return (
     <div className="md:max-w-[90%] lg:max-w-[80%] max-w-[100%] p-4 mx-auto">
       <h2 className="text-xl font-semibold mb-6 text-gray-800">

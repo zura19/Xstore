@@ -46,7 +46,7 @@ export default function SidebarItem({
               ? " bg-blue-600 hover:bg-blue-700 p-3"
               : "hover:bg-gray-100 p-2"
           } transition-all duration-300  rounded-full ${
-            pathname === to && "bg-gray-200"
+            pathname === to?.split("?")[0] && "bg-gray-200"
           }`}
         >
           {children}

@@ -11,13 +11,13 @@ export default async function OrderList() {
   // @ts-expect-error adasd
   const dates = orders.flatMap((order) => order.createdAt);
 
-  console.log(dates);
-
   if (products.length === 0)
     return (
-      <div className="text-center   py-8">
-        <h1 className="font-bold text-2xl py-2">No Orders yet</h1>
-        <ReturnHomePageBtn className="py-2 px-2" />
+      <div className="text-center py-8">
+        <h1 className="font-bold text-xl sm:text-2xl py-1 sm:py-2">
+          No Orders yet
+        </h1>
+        <ReturnHomePageBtn className="" />
       </div>
     );
 

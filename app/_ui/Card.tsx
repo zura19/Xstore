@@ -48,8 +48,6 @@ export default function Card({
   const { data: userInfo } = useSession();
   const width = useWindowWidth();
 
-  console.log(images);
-
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}

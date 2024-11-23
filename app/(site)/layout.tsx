@@ -16,7 +16,6 @@ export default function RootLayout({
     <div
       className={`grid grid-cols-[auto_1fr] text-gray-800  w-dvw h-dvh ${inter.className}`}
     >
-      {/* <div> */}
       <Sidebar />
       <ScrollableContentWrapper>
         <main id="scrollable-homepage" className="min-h-dvh ">
@@ -27,8 +26,6 @@ export default function RootLayout({
         <BottomNavbar />
         <Footer />
       </ScrollableContentWrapper>
-
-      {/* </div> */}
     </div>
   );
 }

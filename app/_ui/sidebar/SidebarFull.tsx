@@ -18,7 +18,7 @@ export default function SidebarFull() {
         <AllCategoriesBtn onSidebar={true} />
 
         <li className=" focus:bg-gray-200 active:bg-gray-200 ">
-          <SidebarFullItems label="phones" to="/category/phone">
+          <SidebarFullItems label="phones" to="/category/phone?page=1">
             <HiOutlineDevicePhoneMobile size={24} color="black" />
           </SidebarFullItems>
         </li>
@@ -33,7 +33,7 @@ export default function SidebarFull() {
               { label: "Hp", to: "/category/laptop/hp" },
             ]}
             label="Laptops"
-            to="/category/laptop"
+            to="/category/laptop?page=1"
           >
             <RiMacbookLine size={24} color="black" />
           </SidebarFullItems>
@@ -47,14 +47,14 @@ export default function SidebarFull() {
               { label: "Iphone 14 series", to: "/category/apple/iphone-14" },
             ]}
             label="Apple"
-            to="/category/apple"
+            to="/category/apple?page=1"
           >
             <FaApple size={24} color="black" />
           </SidebarFullItems>
         </li>
 
         <li>
-          <SidebarFullItems label="Google" to="/category/google">
+          <SidebarFullItems label="Google" to="/category/google?page=1">
             <FcGoogle size={24} />
           </SidebarFullItems>
         </li>

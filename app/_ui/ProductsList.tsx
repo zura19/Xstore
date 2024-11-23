@@ -33,8 +33,6 @@ export default function ProductsList({
     },
   };
 
-  console.log(products);
-
   if (isAnimation)
     return (
       <motion.ul

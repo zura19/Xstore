@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 
 import Image from "next/image";
 import FavoriteBtn from "./FavoriteBtn";
@@ -59,8 +59,9 @@ export default function ImageSwiper({
         spaceBetween={10}
         grabCursor={true}
         loop={true}
+        pagination={true}
         thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Thumbs]}
+        modules={[FreeMode, Thumbs, Pagination]}
         className=" rounded-lg  border border-gray-200"
       >
         <FavoriteBtn

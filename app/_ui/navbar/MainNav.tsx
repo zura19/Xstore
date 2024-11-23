@@ -60,7 +60,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`${
         isVisible
-          ? "fixed top-0  right-0 left-0  md:left-[4.5%] sm:left-[8%] xl:left-[4.1%] "
+          ? "fixed top-0  right-0 left-0  md:left-[4.5%] sm:left-[8%] xl:left-[3.9%] "
           : " relative fixed"
       }sm:z-30  z-20 bg-indigo-100 shadow-md`}
     >
@@ -81,7 +81,7 @@ const Navbar = () => {
           {width < 768 ? null : (
             <>
               <Link
-                href={"/category/laptop"}
+                href={"/category/laptop?page=1"}
                 className={`${
                   pathname === "/category/laptop" && "text-brand bg-blue-200"
                 } hover:text-brand font-semibold sm:w-auto w-0 overflow-hidden hover:bg-blue-200 sm:px-4 py-2 rounded-full transition-all duration-300`}
@@ -89,7 +89,7 @@ const Navbar = () => {
                 Laptops
               </Link>
               <Link
-                href={"/category/phone"}
+                href={"/category/phone?page=1"}
                 className={`${
                   pathname === "/category/phone" && "text-brand bg-blue-200"
                 } hover:text-brand font-semibold sm:w-auto w-0 overflow-hidden hover:bg-blue-200 sm:px-4 py-2 rounded-full transition-all duration-300`}

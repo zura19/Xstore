@@ -9,8 +9,6 @@ export default function Breadcrumbs() {
 
   let arr = pathname.split("/");
   const search = searchParams.get("search");
-  console.log(search);
-  console.log(pathname);
 
   arr = search ? [...arr, `Search result: "${search}"`] : arr;
 

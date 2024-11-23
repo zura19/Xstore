@@ -6,7 +6,7 @@ export default function LaptopsAndPhones() {
   return (
     <div className="grid grid-cols-[1fr] sm:grid-cols-2  md:grid-cols-3 max-w-[100%] mx-auto gap-y-6 gap-12 ">
       <Link
-        href={"/category/laptop"}
+        href={"/category/laptop?page=1"}
         className="bg-white shadow-md group   bg-gradient-to-r from-blue-100 via-blue-300 to-cyan-500  border border-gray-200 rounded-md flex-grow sm:p-4 p-2"
       >
         <p className=" text-xl sm:text-2xl font-semibold mb-2 sm:mb-6">
@@ -26,7 +26,7 @@ export default function LaptopsAndPhones() {
       </Link>
 
       <Link
-        href={"/category/phone"}
+        href={"/category/phone?page=1"}
         className="bg-white shadow-md group   bg-gradient-to-r from-indigo-300 via-slate-400 to-indigo-300  border border-gray-200 rounded-md flex-grow sm:p-4 p-2"
       >
         <p className=" text-xl sm:text-2xl font-semibold mb-2 sm:mb-6">
@@ -45,7 +45,7 @@ export default function LaptopsAndPhones() {
       </Link>
 
       <Link
-        href={"/category/headphones"}
+        href={"/category/headphones?page=1"}
         className="bg-white shadow-md group   bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400  border border-gray-200 rounded-md flex-grow sm:p-4 p-2"
       >
         <p className=" text-xl sm:text-2xl font-semibold mb-2 sm:mb-6">

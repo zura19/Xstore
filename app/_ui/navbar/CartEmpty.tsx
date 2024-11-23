@@ -14,7 +14,6 @@ export default function CartEmpty() {
       <p className="sm:text-lg text-base mt-4">Your cart is empty!</p>
       <label
         htmlFor="cart"
-        // className="cursor-pointer"
         aria-label="close sidebar"
         className="btn h-2 sm:min-h-16 text-white bg-brand border-none mt-4"
       >

@@ -1,20 +1,22 @@
 "use client";
 import formatCurrency from "@/lib/formatCurrency";
+import { useWindowWidth } from "@/lib/useWindowWidth";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
+import FilterDrawer from "./FilterDrawer";
 
 export default function Filter({ priceArr }: { priceArr: number[] }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathName = usePathname();
 
+  const width = useWindowWidth();
+
   const minPrice = Math.min(...priceArr);
   const maxPrice = Math.max(...priceArr);
 
   const [min, setMin] = useState(Number(searchParams.get("min")) || minPrice);
   const [max, setMax] = useState(Number(searchParams.get("max")) || maxPrice);
-
-  console.log(priceArr, minPrice, min);
 
   const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.min(+e.target.value, max - 1);
@@ -24,8 +26,6 @@ export default function Filter({ priceArr }: { priceArr: number[] }) {
     const value = Math.max(+e.target.value, min + 1);
     setMax(value);
   };
-
-  console.log(searchParams);
 
   function handleFilter() {
     const params = new URLSearchParams(searchParams);
@@ -59,6 +59,62 @@ export default function Filter({ priceArr }: { priceArr: number[] }) {
     params.delete("page");
     router.replace(`${pathName}?${params.toString()}`);
   }
+
+  if (width < 649)
+    return (
+      <FilterDrawer>
+        <>
+          <p className="text-lg font-semibold mb-2">Price</p>
+          <label className="text-sm">
+            Min:{" "}
+            <span className="text-brand font-medium">
+              {formatCurrency(min)}
+            </span>
+          </label>
+          <input
+            type="range"
+            min={minPrice}
+            max={maxPrice}
+            value={min}
+            onChange={handleMinChange}
+            className="range range-primary range-xs"
+          />
+
+          <label className="text-sm mt-2">
+            Max:{" "}
+            <span className="text-brand font-medium">
+              {formatCurrency(max)}
+            </span>
+          </label>
+          <input
+            type="range"
+            min={minPrice}
+            max={maxPrice}
+            value={max}
+            onChange={handleMaxChange}
+            className="range range-primary range-xs"
+          />
+          <div className="flex gap-4 mt-2">
+            <label
+              htmlFor="filter"
+              aria-label="close sidebar"
+              onClick={handleReset}
+              className="btn btn-sm flex-1 btn-primary"
+            >
+              Reset
+            </label>
+            <label
+              htmlFor="filter"
+              aria-label="close sidebar"
+              onClick={handleFilter}
+              className="btn btn-sm flex-1 btn-primary"
+            >
+              Filter
+            </label>
+          </div>
+        </>
+      </FilterDrawer>
+    );
 
   return (
     // <div className="bg-white divide-y mb-auto divide-gray-200 rounded-md">

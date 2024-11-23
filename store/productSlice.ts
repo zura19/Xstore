@@ -26,11 +26,6 @@ interface IinitialState {
   favorites: IFavoritesItem[];
 }
 
-// const loadCartFromLocalStorage = (): IcartItem[] | [] => {
-//   const storedCart = localStorage.getItem("cart");
-//   return storedCart ? JSON.parse(storedCart) : [];
-// };
-
 const initialState: IinitialState = {
   cart: [],
   favorites: [],

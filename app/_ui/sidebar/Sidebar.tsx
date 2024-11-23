@@ -14,19 +14,19 @@ export default function Sidebar() {
           <HiMiniBars3 size={20} color="white" />
         </SidebarItem>
 
-        <SidebarItem to={"/category/phone"} main={false}>
+        <SidebarItem to={"/category/phone?page=1"} main={false}>
           <HiOutlineDevicePhoneMobile size={24} color="black" />
         </SidebarItem>
 
-        <SidebarItem to={"/category/laptop"} main={false}>
+        <SidebarItem to={"/category/laptop?page=1"} main={false}>
           <RiMacbookLine size={24} color="black" />
         </SidebarItem>
 
-        <SidebarItem to={"/category/apple"} main={false}>
+        <SidebarItem to={"/category/apple?page=1"} main={false}>
           <FaApple size={24} color="black" />
         </SidebarItem>
 
-        <SidebarItem to={"/category/google"} main={false}>
+        <SidebarItem to={"/category/google?page=1"} main={false}>
           <FcGoogle size={24} />
         </SidebarItem>
       </div>

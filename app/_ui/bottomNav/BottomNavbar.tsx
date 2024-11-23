@@ -37,7 +37,10 @@ export default function BottomNavbar() {
       <Cart bottomNav={true} />
 
       {session.data?.user ? (
-        <BottomNavItem to="/account" label={session.data.user.name}>
+        <BottomNavItem
+          to="/account"
+          label={session.data.user.name.split(" ")[0]}
+        >
           {/* <HiOutlineHome size={20} strokeWidth={2} /> */}
           <HiOutlineUser
             size={20}

@@ -45,8 +45,6 @@ export default function DeliveryForm() {
     return total + product.price * product.quantity;
   }, 0);
 
-  console.log(userInfo?.user.id);
-
   async function onSubmit(values: z.infer<typeof orderSchema>) {
     const order = await addOrder({
       ...values,

@@ -45,9 +45,6 @@ export default function LoginForm({ closeModal }: { closeModal: () => void }) {
     // }
   }
 
-  // async function signInWithGoogle() {
-  // }
-
   return (
     <>
       <form

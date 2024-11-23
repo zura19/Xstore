@@ -13,7 +13,6 @@ interface Pageprops {
 }
 
 export default async function FilterSuspanse({ searchParam }: Pageprops) {
-  console.log(searchParam);
   const Allproducts: Iproduct[] | { error: string } = await getAllPrices({
     ...searchParam,
   });

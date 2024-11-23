@@ -50,7 +50,7 @@ export default async function page({ searchParams, params }: PageProps) {
       <Suspense fallback={<FilterSkeleton />}>
         <FilterSuspanse searchParam={{ search: searchparams.search }} />
       </Suspense>
-      <Suspense fallback={<CardSkeletonList />}>
+      <Suspense key={searchparams.page} fallback={<CardSkeletonList />}>
         <ProductsSuspanse
           searchParams={{
             ...searchparams,

@@ -5,10 +5,6 @@ import { stringIdAndParseObject } from "@/lib/stringMongoId";
 export default async function NewPorducts() {
   const newProducts = await getNewProducts();
 
-  console.log(newProducts);
-
-  console.log(NewPorducts);
-
   return (
     <div className="">
       <p className="text-2xl font-semibold mb-4">New products</p>
