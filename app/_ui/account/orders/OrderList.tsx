@@ -1,15 +1,20 @@
 import { getOrdersByUserId } from "@/app/actions/orderActions";
 import { auth } from "@/auth";
-import { IOrder } from "@/models/orderModel";
 import Order from "./Order";
 import ReturnHomePageBtn from "../../ReturnHomePageBtn";
 
 export default async function OrderList() {
   const session = await auth();
-  const orders: IOrder[] = await getOrdersByUserId(session?.user.id || "");
-  const products = orders.flatMap((order) => order.products);
-  // @ts-expect-error adasd
-  const dates = orders.flatMap((order) => order.createdAt);
+  const orders = await getOrdersByUserId(session?.user?.id as string);
+
+  const products = orders.map((order) => {
+    // @ts-expect-error createdat is not on the order object
+    return { arr: [...order.products], createdAt: order.createdAt };
+  });
+
+  // @ts-expect-error createdat is not on the order object
+  const dates = orders.map((order) => order?.createdAt || "unknown");
+  console.log(dates);
 
   if (products.length === 0)
     return (
@@ -22,39 +27,37 @@ export default async function OrderList() {
     );
 
   return (
-    <div className="overflow-x-auto">
+    <div className="max-h-[550px] overflow-y-scroll">
       <table className="table  text-xs sm:text-sm">
         <thead>
           <tr>
             <th>
-              <label>
+              Status
+              {/* <label>
                 <input type="checkbox" className="checkbox" />
-              </label>
+              </label> */}
             </th>
             <th>Product</th>
             <th>Date</th>
             <th>Total</th>
           </tr>
         </thead>
-        <tbody>
-          {products.map((product, index) => (
-            <Order
-              key={product.id}
-              product={product}
-              index={index}
-              dates={dates}
-            />
-          ))}
+        <tbody className="">
+          {products
+            .flat()
+            .map((product, index) =>
+              product.arr.map((product) => (
+                <Order
+                  key={index}
+                  index={index}
+                  dates={dates}
+                  quantity={product.quantity}
+                  productId={product.productId as string}
+                />
+              ))
+            )}
         </tbody>
       </table>
     </div>
-
-    // <ul className="">
-    //   {products.map((product) => (
-    //     <li className="p-2" key={product.id}>
-    //       {product.title}
-    //     </li>
-    //   ))}
-    // </ul>
   );
 }

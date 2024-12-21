@@ -5,7 +5,7 @@ import pageReducer from "./pageSlice";
 import {
   persistStore,
   persistReducer,
-  // eslint-ignore-next-line
+  // eslint-disable-next-line
   FLUSH,
   REGISTER,
   REHYDRATE,

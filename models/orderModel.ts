@@ -1,4 +1,4 @@
-import { IcartItem } from "@/store/productSlice";
+// import { IcartItem } from "@/store/productSlice";
 import mongoose, { Schema, Model } from "mongoose";
 
 // Define a TypeScript interface for the order
@@ -10,7 +10,7 @@ export interface IOrder {
   email: string;
   number: number;
   additionalInfo?: string;
-  products: IcartItem[];
+  products: { productId: string; quantity: number }[];
   totalPrice: number;
   userId: string;
 }
@@ -60,11 +60,7 @@ const orderSchema: Schema<IOrder> = new Schema<IOrder>(
     products: {
       type: [
         {
-          id: { type: String },
-          title: { type: String },
-          price: { type: Number },
-          stock: { type: Number },
-          image: { type: String },
+          productId: { type: String },
           quantity: { type: Number },
         },
       ],
@@ -85,6 +81,6 @@ const orderSchema: Schema<IOrder> = new Schema<IOrder>(
 
 // Define the Mongoose model with TypeScript
 const Order: Model<IOrder> =
-  mongoose?.models?.Order || mongoose.model<IOrder>("Order", orderSchema);
+  mongoose?.models?.Orders || mongoose.model<IOrder>("Orders", orderSchema);
 
 export default Order;

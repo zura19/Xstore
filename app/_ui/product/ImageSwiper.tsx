@@ -46,7 +46,7 @@ export default function ImageSwiper({
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="max-w-[500px]   transition-all  duration-300"
+      className="max-w-[500px]"
     >
       <Swiper
         style={{
@@ -80,13 +80,8 @@ export default function ImageSwiper({
         />
         {imagesArr.map((image) => (
           <SwiperSlide key={image} className="pt-[80%]  relative">
-            <div className="flex  w-full items-cente object-contain justify-center">
-              <Image
-                fill
-                className="transition-all duration-700 object-contain"
-                src={image}
-                alt="fd"
-              />
+            <div className="flex  w-full  items-cente object-contain justify-center">
+              <Image fill className="object-contain" src={image} alt="fd" />
             </div>
           </SwiperSlide>
         ))}
@@ -101,7 +96,7 @@ export default function ImageSwiper({
           </>
         )}
       </Swiper>
-      {width < 768 ? null : (
+      {width < 1024 ? null : (
         <Swiper
           // @ts-expect-error idk
           onActiveIndexChange={setThumbsSwiper}

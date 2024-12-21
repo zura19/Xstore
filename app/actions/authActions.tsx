@@ -5,6 +5,9 @@ import { signUpSchema } from "@/lib/zod";
 import User from "@/models/userModel";
 import { AuthError } from "next-auth";
 import bcrypt from "bcryptjs";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function signInWithCredentials(values: {
   username: string;
@@ -97,6 +100,14 @@ export async function signUp(values: {
       number: signUpValues.data?.number,
       password: hashedPassword,
     });
+
+    await resend.emails.send({
+      from: `Xstore <${process.env.SENDER_EMAIL!}>`,
+      to: signUpValues.data?.email as string,
+      subject: "Welcome to Xstore",
+      react: <h1>Thank you for signing up {signUpValues.data?.username}</h1>,
+    });
+
     return { success: "User created successfully" };
   } catch (err) {
     if (err instanceof AuthError) {

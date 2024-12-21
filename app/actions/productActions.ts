@@ -166,17 +166,16 @@ export async function getFilteredProducts({
           ...(min !== undefined && max !== undefined
             ? { originalPrice: { $gte: Number(min), $lte: Number(max) } }
             : min !== undefined
-            ? { originalPrice: { $gte: Number(min) } }
-            : max !== undefined
-            ? { originalPrice: { $lte: Number(max) } }
-            : {}),
+              ? { originalPrice: { $gte: Number(min) } }
+              : max !== undefined
+                ? { originalPrice: { $lte: Number(max) } }
+                : {}),
         },
       },
     ];
 
-    const totalproducts = await Product.aggregate(pipeline).count(
-      "totalQuantity"
-    );
+    const totalproducts =
+      await Product.aggregate(pipeline).count("totalQuantity");
     const total = totalproducts[0]?.totalQuantity;
     const limit = 8;
     const skip = (page ? Number(page) - 1 : 0) * limit;
@@ -196,7 +195,6 @@ export async function getFilteredProducts({
   }
 }
 
-// @ts-expect-error tpye
 export async function createProduct(values) {
   try {
     await connectToDB();
@@ -215,7 +213,6 @@ export async function createProduct(values) {
   }
 }
 
-// @ts-expect-error tpye
 export async function updateProduct(id, values) {
   try {
     await connectToDB();

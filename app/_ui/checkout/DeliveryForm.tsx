@@ -1,14 +1,14 @@
 "use client";
-import { addOrder } from "@/app/actions/orderActions";
+
 import { orderSchema } from "@/lib/zod";
-import { emptyCart, IcartItem } from "@/store/productSlice";
-import { useAppDispatch, useAppSelector } from "@/store/store";
+import { IcartItem } from "@/store/productSlice";
+import { useAppSelector } from "@/store/store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 import { z } from "zod";
 
 export default function DeliveryForm() {
@@ -17,8 +17,9 @@ export default function DeliveryForm() {
     (state) => state.persistedProductsReducer.product.cart
   );
 
-  const dispatch = useAppDispatch();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   const { register, formState, handleSubmit, reset } = useForm<
     z.infer<typeof orderSchema>
@@ -46,18 +47,45 @@ export default function DeliveryForm() {
   }, 0);
 
   async function onSubmit(values: z.infer<typeof orderSchema>) {
-    const order = await addOrder({
-      ...values,
-      products: cart,
-      totalPrice,
-      userId: userInfo?.user.id ? userInfo.user.id : "",
-    });
+    // const order = await addOrder({
+    //   ...values,
+    //   products: cart,
+    //   totalPrice,
+    //   userId: userInfo?.user.id ? userInfo.user.id : "",
+    // });
 
-    if (order.success) {
-      toast.success(order.success);
-      dispatch(emptyCart());
-      router.push("/");
-    }
+    localStorage.setItem(
+      "orderInfo",
+      JSON.stringify({
+        ...values,
+        products: cart.map((product) => product.id),
+        totalPrice,
+        userId: userInfo?.user.id ? userInfo.user.id : "",
+      })
+    );
+    const params = new URLSearchParams(searchParams);
+    // params.set("productId", cart.map((product) => product.id).join(","));
+    params.set(
+      "orderInfo",
+      JSON.stringify({
+        ...values,
+        products: cart.map((product) => {
+          return {
+            id: product.id,
+            quantity: product.quantity,
+          };
+        }),
+        totalPrice,
+        userId: userInfo?.user.id ? userInfo.user.id : "",
+      })
+    );
+
+    setTimeout(() => router.push(`${pathname}/payment/?${params}`), 200);
+
+    // if (order.success) {
+    //   toast.success(order.success);
+    //   dispatch(emptyCart());
+    // }
   }
 
   return (

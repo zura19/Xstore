@@ -33,7 +33,7 @@ export default function AddToCartBtn({
   }
 
   return (
-    <div className="flex items-center w-full lg:w-[60%] gap-4">
+    <div className="flex  items-center w-full lg:w-[60%] gap-4">
       <Cartboard
         productData={{ id, title, stock, price, image, quantity }}
         id={id}

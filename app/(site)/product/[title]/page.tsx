@@ -32,7 +32,7 @@ export default async function Page({ params }: ProductPageProps) {
   return (
     <div className="">
       <div className=" bg-white ">
-        <div className="md:max-w-[90%] mx-auto grid gap-y-4  md:gap-x-10 grid-cols-1 md:grid-cols-[1fr_10fr] p-4">
+        <div className="lg:max-w-[90%] mx-auto grid gap-y-4  lg:gap-x-10 grid-cols-1 lg:grid-cols-[1fr_10fr] p-4">
           <ImageSwiper
             title={product.title}
             price={product.price}
@@ -139,9 +139,6 @@ export default async function Page({ params }: ProductPageProps) {
                   image={product.mainImage}
                   quantity={1}
                 />
-                <button className="btn w-full grow  min-h-9   h-12 rounded-md flex-1 bg-green-600 hover:bg-green-700 transition-all duration-300 border-none text-white">
-                  Buy now
-                </button>
               </div>
             ) : null}
           </div>

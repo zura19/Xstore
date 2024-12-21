@@ -4,13 +4,15 @@ import Cartboard from "../product/Cartboard";
 import formatCurrency from "@/lib/formatCurrency";
 import Image from "next/image";
 import { MdOutlineClose } from "react-icons/md";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useAppDispatch } from "@/store/store";
 
 export default function CartItem({ cartItem }: { cartItem: IcartItem }) {
   const router = useRouter();
   const closeBtnRef = useRef(null);
   const dispatch = useAppDispatch();
+  const pathname = usePathname();
+  const isOnPaymentPage = pathname.includes("payment");
 
   return (
     <div
@@ -48,8 +50,10 @@ export default function CartItem({ cartItem }: { cartItem: IcartItem }) {
             />
           </button>
         </div>
-        {/* @ts-expect-error idk */}
-        <Cartboard id={cartItem.id} size={"sm"} />
+        {isOnPaymentPage ? null : (
+          /* @ts-expect-error idk */
+          <Cartboard id={cartItem.id} size={"sm"} />
+        )}
         <div className="flex items-center gap-1">
           <p className="text-gray-400">{cartItem.quantity}</p>
           <p className="text-gray-400">x</p>
